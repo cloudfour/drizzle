@@ -10,11 +10,10 @@ dom.navToggle = dom.nav.querySelector('a[href="#nav"]');
 dom.navLinks = dom.navMenu.querySelectorAll('a');
 
 function setActiveNavItem (pathname) {
-  const isMatch = a => new URL(a.href).pathname === pathname;
-  const active = Array.from(dom.navLinks).find(isMatch);
-  if (active) {
-    console.log(active);
-    active.classList.add('is-active');
+  const isMatch = a => a.pathname === pathname;
+  const item = Array.from(dom.navLinks).find(isMatch);
+  if (item) {
+    item.classList.add('is-active');
   }
 }
 
