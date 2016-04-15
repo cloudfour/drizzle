@@ -1,0 +1,28 @@
+:root {
+  --Label-inprogress: var(--color-yellow);
+  --Label-deprecated: var(--color-red);
+  --Label-approved: var(--color-green);
+}
+
+.Label {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+}
+
+.Label--inprogress {
+  background-color: var(--Label-inprogress);
+  color: var(--color-black);
+}
+
+.Label--deprecated {
+  background-color: var(--Label-deprecated);
+  color: var(--color-white);
+}
+
+.Label--approved {
+  background-color: var(--Label-approved);
+  color: var(--color-white);
+}

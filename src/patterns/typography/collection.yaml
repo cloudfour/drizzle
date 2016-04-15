@@ -1,0 +1,7 @@
+# This shows how patterns can be ordered by a single definition,
+# opposed to defining an `order` front-matter property in each file.
+
+order:
+  - paragraphs
+  - headings
+  - lists

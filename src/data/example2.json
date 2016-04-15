@@ -1,0 +1,14 @@
+{
+  "someString": "Some String",
+  "someArray": [
+    "One",
+    "Two",
+    "Three"
+  ],
+  "someMap": {
+    "one": "One",
+    "two": "Two",
+    "three": "Three"
+  },
+  "someMarkdown": "_This_ is some **Markdown**!"
+}

@@ -1,0 +1,13 @@
+---
+title: Docs Index
+---
+
+<p>These are some docs.</p>
+
+<ul>
+  {{#each drizzle.pages.docs}}
+    {{#compare @key "!==" "index"}}
+      <li><a href="./{{@key}}.html">{{data.title}}</a></li>
+    {{/compare}}
+  {{/each}}
+</ul>

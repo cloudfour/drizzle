@@ -1,0 +1,72 @@
+<div class="drizzle-Layout-nav drizzle-Nav" id="nav">
+  <div class="drizzle-Nav-header">
+    <a class="drizzle-Nav-header-logo" href="/">
+      {{> drizzle.logo}}
+    </a>
+    <a class="drizzle-Nav-header-toggle" href="#nav">
+      <svg viewBox="0 0 9.71 5.56">
+        <polygon points="4.85 5.56 0 0.71 0.71 0 4.85 4.15 9 0 9.71 0.71 4.85 5.56"/>
+      </svg>
+    </a>
+  </div>
+  <div class="drizzle-Nav-main">
+    <ul class="drizzle-Nav-menu" id="nav-menu">
+      {{!-- Top-level pages --}}
+      {{#each drizzle.pages}}
+        {{#if contents}}
+          <li>
+            <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/{{@key}}.html">
+              {{data.title}}
+            </a>
+          </li>
+        {{/if}}
+      {{/each}}
+      {{!-- Patterns --}}
+      {{#each drizzle.patterns}}
+        <li>
+          <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/patterns/{{@key}}.html">
+            {{collection.name}}
+          </a>
+        </li>
+      {{/each}}
+      {{!-- Demo pages --}}
+      {{#with drizzle.pages.demos}}
+        <li>
+          <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/demos/index.html">
+            {{index.data.title}}
+          </a>
+          <ul class="drizzle-Nav-menu">
+            {{#each this}}
+              {{#compare @key "!==" "index"}}
+                <li>
+                  <a class="drizzle-Nav-item" href="/demos/{{@key}}.html">
+                    {{data.title}}
+                  </a>
+                </li>
+              {{/compare}}
+            {{/each}}
+          </ul>
+        </li>
+      {{/with}}
+      {{!-- Docs pages --}}
+      {{#with drizzle.pages.docs}}
+        <li>
+          <a class="drizzle-Nav-item drizzle-Nav-item--heading" href="/docs/index.html">
+            {{index.data.title}}
+          </a>
+          <ul class="drizzle-Nav-menu">
+            {{#each this}}
+              {{#compare @key "!==" "index"}}
+                <li>
+                  <a class="drizzle-Nav-item" href="/docs/{{@key}}.html">
+                    {{data.title}}
+                  </a>
+                </li>
+              {{/compare}}
+            {{/each}}
+          </ul>
+        </li>
+      {{/with}}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+extends: "xo-space/esnext"
+env:
+  browser: true
+rules:
+  space-before-function-paren: [2, "always"]
+  no-warning-comments: 0

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="{{htmlclass}}">
+  <head>
+    {{#block "head"}}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{{title}}</title>
+      {{#each styles}}
+        <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{this}}.css">
+      {{/each}}
+    {{/block}}
+  </head>
+  {{#block "wrapper"}}
+    <body>
+      {{#block "body"}}
+
+      {{/block}}
+    </body>
+  {{/block}}
+</html>

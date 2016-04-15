@@ -1,0 +1,116 @@
+:root {
+  --Nav-background: var(--color-white);
+  --Nav-border: 1px solid var(--color-silver);
+  --Nav-active-color: inherit;
+  --Nav-active-border: #0055cc;
+}
+
+.Nav {
+  background: var(--Nav-background);
+  border: var(--Nav-border);
+  border-width: 0 0 1px;
+}
+
+@media (--lg-viewport) {
+  .Nav {
+    border-width: 0 1px 0;
+  }
+}
+
+.Nav a,
+.Nav a:--enter {
+  text-decoration: none;
+}
+
+.Nav-header {
+  margin: 0;
+  padding: 1rem;
+  position: relative;
+}
+
+.Nav-header-logo {
+  font-weight: bold;
+  margin: 0;
+}
+
+.Nav-header-logo > img {
+  vertical-align: bottom;
+}
+
+.Nav-header-toggle {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+  margin: -1.5em 0 0;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.Nav.is-active .Nav-header-toggle {
+  transform: rotate(180deg);
+}
+
+@media (--lg-viewport) {
+  .Nav-header-toggle {
+    display: none;
+  }
+}
+
+.Nav-header-toggle svg {
+  display: block;
+  fill: currentColor;
+  height: 1em;
+  opacity: 0.5;
+  width: 1em;
+}
+
+.Nav-main {
+  display: none;
+  margin: 0;
+}
+
+.Nav.is-active .Nav-main {
+  display: block;
+}
+
+@media (--lg-viewport) {
+  .Nav-main {
+    display: block;
+  }
+}
+
+.Nav-menu {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.Nav-menu .Nav-menu {
+  margin-bottom: 0;
+}
+
+.Nav-menu > li {
+  margin: 0;
+}
+
+.Nav-item {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 0 0.25rem;
+  display: block;
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+}
+
+.Nav-menu .Nav-menu .Nav-item {
+  font-size: 0.875em;
+  padding-left: 1.875rem;
+}
+
+.Nav-item.is-active {
+  border-color: var(--Nav-active-border);
+  color: var(--Nav-active-color);
+}

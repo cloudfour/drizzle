@@ -1,0 +1,41 @@
+:root {
+  /* Common properties */
+  --color-aqua: #7fdbff;
+  --color-blue: #0074d9;
+  --color-lime: #01ff70;
+  --color-navy: #001f3f;
+  --color-teal: #39cccc;
+  --color-olive: #3d9970;
+  --color-green: #2ecc40;
+  --color-red: #ff4136;
+  --color-maroon: #85144b;
+  --color-orange: #ff851b;
+  --color-purple: #b10dc9;
+  --color-yellow: #ffdc00;
+  --color-fuchsia: #f012be;
+  --color-gray: #aaa;
+  --color-white: #fff;
+  --color-black: #111;
+  --color-silver: #f0f0f0;
+  --monospace: "Source Code Pro";
+  --space: 1rem;
+
+  /* SUIT component properties */
+  --Arrange-gutter-size: calc(var(--space) / 2);
+}
+
+@custom-media --sm-viewport (max-width: 30em);
+@custom-media --md-viewport (min-width: 40em);
+@custom-media --lg-viewport (min-width: 60em);
+
+@custom-selector :--enter :matches(:hover, :focus, :active);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+body {
+  background-color: #fff !important;
+}
+
+code,
+pre {
+  font-family: var(--monospace), monospace !important;
+}
