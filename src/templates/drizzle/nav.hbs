@@ -11,6 +11,43 @@
   </div>
   <div class="drizzle-Nav-main">
     <ul class="drizzle-Nav-menu" id="nav-menu">
+      {{!-- WIP tree usage
+      <!--
+      {
+        pages: {
+          children: [
+            [Object],
+            [Object]
+          ],
+          items: [
+            [Object]
+          ]
+        },
+        collections: {
+          children: [
+            [Object],
+            [Object]
+          ]
+        }
+      }
+      -->
+      {{#with drizzle.tree}}
+        {{#each pages.items}}
+          {{log path}}
+        {{/each}}
+        {{#each collections.children}}
+          {{#each items}}
+            {{log path}}
+          {{/each}}
+        {{/each}}
+        {{#each pages.children}}
+          {{#each items}}
+            {{log path}}
+          {{/each}}
+        {{/each}}
+      {{/with}}
+      --}}
+
       {{!-- Top-level pages --}}
       {{#each drizzle.pages}}
         {{#if contents}}
