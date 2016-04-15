@@ -9,7 +9,9 @@
   border-radius: 0.25rem;
   display: inline-block;
   font-size: 0.75rem;
-  padding: 0.125rem 0.5rem;
+  line-height: 1;
+  padding: calc(var(--space) / 2);
+  vertical-align: inherit;
 }
 
 .Label--inprogress {

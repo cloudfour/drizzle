@@ -1,19 +1,23 @@
 <div class="drizzle-Item drizzle-u-rhythm">
   {{!-- Header, labels --}}
   <div class="drizzle-u-marginEnds">
-    <h3 class="drizzle-u-inlineBlock drizzle-u-alignMiddle drizzle-u-padRight">
+    <h3 class="
+     drizzle-u-inlineBlock
+     drizzle-u-alignMiddle
+     drizzle-u-textNoWrap
+     drizzle-u-padRight">
       {{data.name}}
     </h3>
     {{#if data.labels}}
-      <div class="drizzle-u-inlineBlock drizzle-u-alignMiddle">
-        <ul class="drizzle-Arrange drizzle-Arrange--withGutter">
-          {{#each data.labels}}
-            <li class="drizzle-Arrange-sizeFit">
-              <span class="drizzle-Label drizzle-Label--{{this}}">{{this}}</span>
-            </li>
-          {{/each}}
-        </ul>
-      </div>
+      <ul class="
+       drizzle-u-inlineBlock
+       drizzle-u-alignMiddle">
+        {{#each data.labels}}
+          <li class="drizzle-Label drizzle-Label--{{this}}">
+            {{this}}
+          </li>
+        {{/each}}
+      </ul>
     {{/if}}
   </div>
   {{!-- Notes --}}

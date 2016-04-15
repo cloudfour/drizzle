@@ -16,11 +16,11 @@
 /* Import more stuff here. */
 
 html {
-  line-height: 1.44;
+  line-height: 1.4;
 }
 
 @media (--lg-viewport) {
   body {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 }
