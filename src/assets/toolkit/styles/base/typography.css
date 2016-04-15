@@ -1,0 +1,9 @@
+html {
+  line-height: 1.4;
+}
+
+@media (--lg-viewport) {
+  body {
+    font-size: 1.2em;
+  }
+}

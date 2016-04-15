@@ -2,8 +2,8 @@
 
 module.exports = {
   'css:toolkit': {
-    src: './src/assets/**/toolkit.css',
-    dest: './dist/assets',
+    src: './src/assets/toolkit/styles/*.css',
+    dest: './dist/assets/toolkit/styles',
     name: 'css:toolkit'
   },
 

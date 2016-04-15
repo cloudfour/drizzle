@@ -5,8 +5,7 @@
 @import "suitcss-components-arrange";
 @import "suitcss-components-grid";
 
-@import "./config.css";
-@import "./base.css";
+@import "./base/index.css";
 @import "./components/index.css";
 @import "./prism.css";
 
