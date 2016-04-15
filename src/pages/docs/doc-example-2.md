@@ -1,5 +1,5 @@
 ---
-title: Example Doc 2
+title: Conventions
 ---
 
 This is an example doc.

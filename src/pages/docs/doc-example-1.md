@@ -1,5 +1,5 @@
 ---
-title: Example Doc 1
+title: Getting started
 ---
 
 This is an example doc.

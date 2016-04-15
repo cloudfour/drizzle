@@ -49,9 +49,11 @@
     {{{pattern id @root}}}
   </div>
   {{!-- Code sample --}}
-  <pre>
-    <code class="language-markup">
-      {{{patternSource id @root}}}
-    </code>
-  </pre>
+  {{#prettify mode="html" condense="true"}}
+    <pre>
+      <code class="language-markup">
+        {{{patternSource id @root}}}
+      </code>
+    </pre>
+  {{/prettify}}
 </div>
