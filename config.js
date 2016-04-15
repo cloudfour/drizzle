@@ -14,7 +14,7 @@ module.exports = {
     name: 'css:drizzle'
   },
 
-  'js': {
+  js: {
     plugins: {
       webpack: {
         entry: {
@@ -42,7 +42,7 @@ module.exports = {
     }
   },
 
-  'serve': {
+  serve: {
     plugins: {
       browserSync: {
         open: false,
@@ -53,7 +53,7 @@ module.exports = {
     }
   },
 
-  'watch': {
+  watch: {
     watchers: [
       {
         match: ['./src/assets/**/*.css'],
@@ -73,7 +73,7 @@ module.exports = {
     ]
   },
 
-  'drizzle': {
+  drizzle: {
     src: {
       patterns: {
         basedir: './src/patterns',

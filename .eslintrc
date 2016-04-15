@@ -4,3 +4,4 @@ env:
 rules:
   space-before-function-paren: [2, "always"]
   no-warning-comments: 0
+  quote-props: [2, "as-needed"]
