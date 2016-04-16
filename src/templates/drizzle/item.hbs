@@ -45,13 +45,19 @@
     </div>
   {{/if}}
   {{!-- Preview --}}
-  <div class="drizzle-Item-preview drizzle-u-cf drizzle-u-posRelative">
+  <div class="
+   drizzle-Item-preview
+   drizzle-u-cf
+   drizzle-u-posRelative
+   drizzle-u-rhythm">
     {{{pattern id @root}}}
   </div>
   {{!-- Code sample --}}
-  <pre>
-    <code class="language-markup">
-      {{{patternSource id @root}}}
-    </code>
-  </pre>
+  {{#unless data.sourceless}}
+    <pre>
+      <code class="language-markup">
+        {{{patternSource id @root}}}
+      </code>
+    </pre>
+  {{/unless}}
 </div>
