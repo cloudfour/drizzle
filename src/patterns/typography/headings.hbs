@@ -8,6 +8,8 @@ labels:
   - inprogress
 ---
 
-<h1>Heading</h1>
-<h2>Heading</h2>
-<h3>Heading</h3>
+{{#with drizzle.data.specimens.contents}}
+  <h1>{{heading}}</h1>
+  <h2>{{heading}}</h2>
+  <h3>{{heading}}</h3>
+{{/with}}
