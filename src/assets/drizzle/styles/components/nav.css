@@ -2,17 +2,15 @@
   --Nav-background: var(--color-white);
   --Nav-border: 1px solid var(--color-silver);
   --Nav-active-color: inherit;
-  --Nav-active-border: #0055cc;
+  --Nav-active-border: var(--color-blue);
 }
 
 .Nav {
   background: var(--Nav-background);
   border: var(--Nav-border);
   border-width: 0 0 1px;
-}
 
-@media (--lg-viewport) {
-  .Nav {
+  @media (--lg-viewport) {
     border-width: 0 1px 0;
   }
 }
@@ -23,18 +21,16 @@
 }
 
 .Nav-header {
-  margin: 0;
   padding: 1rem;
   position: relative;
 }
 
 .Nav-header-logo {
   font-weight: bold;
-  margin: 0;
-}
 
-.Nav-header-logo > img {
-  vertical-align: bottom;
+  & > img {
+    vertical-align: bottom;
+  }
 }
 
 .Nav-header-toggle {
@@ -48,37 +44,32 @@
   position: absolute;
   top: 50%;
   right: 0;
-}
 
-.Nav.is-active .Nav-header-toggle {
-  transform: rotate(180deg);
-}
-
-@media (--lg-viewport) {
-  .Nav-header-toggle {
+  @media (--lg-viewport) {
     display: none;
   }
-}
 
-.Nav-header-toggle svg {
-  display: block;
-  fill: currentColor;
-  height: 1em;
-  opacity: 0.5;
-  width: 1em;
+  & svg {
+    display: block;
+    fill: currentColor;
+    height: 1em;
+    opacity: 0.5;
+    width: 1em;
+  }
+
+  @nest .Nav.is-active & {
+    transform: rotate(180deg);
+  }
 }
 
 .Nav-main {
   display: none;
-  margin: 0;
-}
 
-.Nav.is-active .Nav-main {
-  display: block;
-}
+  @media (--lg-viewport) {
+    display: block;
+  }
 
-@media (--lg-viewport) {
-  .Nav-main {
+  @nest .Nav.is-active & {
     display: block;
   }
 }
@@ -87,14 +78,10 @@
   margin: 0 0 1rem;
   padding: 0;
   list-style: none;
-}
 
-.Nav-menu .Nav-menu {
-  margin-bottom: 0;
-}
-
-.Nav-menu > li {
-  margin: 0;
+  & .Nav-menu {
+    margin-bottom: 0;
+  }
 }
 
 .Nav-item {
@@ -103,14 +90,14 @@
   border-width: 0 0 0 0.25rem;
   display: block;
   padding: 0.5rem 1rem 0.5rem 0.75rem;
-}
 
-.Nav-menu .Nav-menu .Nav-item {
-  font-size: 0.875em;
-  padding-left: 1.875rem;
-}
+  @nest .Nav-menu .Nav-menu & {
+    font-size: 0.875em;
+    padding-left: 1.875rem;
+  }
 
-.Nav-item.is-active {
-  border-color: var(--Nav-active-border);
-  color: var(--Nav-active-color);
+  &.is-active {
+    border-color: var(--Nav-active-border);
+    color: var(--Nav-active-color);
+  }
 }
