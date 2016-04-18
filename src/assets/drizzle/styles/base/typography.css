@@ -1,0 +1,8 @@
+body {
+  background-color: #fff !important;
+}
+
+code,
+pre {
+  font-family: var(--monospace), monospace !important;
+}

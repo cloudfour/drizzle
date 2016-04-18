@@ -1,0 +1,13 @@
+html {
+  line-height: 1.5;
+}
+
+:any-link {
+  color: var(--color-blue);
+}
+
+@media (--lg-viewport) {
+  body {
+    font-size: 1.2em;
+  }
+}

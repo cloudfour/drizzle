@@ -1,0 +1,8 @@
+{{#extend "default"}}
+  {{#content "body"}}
+    <h2 class="drizzle-u-marginTop">{{name}}</h2>
+    {{#each patterns}}
+      {{> drizzle.item}}
+    {{/each}}
+  {{/content}}
+{{/extend}}

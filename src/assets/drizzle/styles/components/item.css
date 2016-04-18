@@ -1,0 +1,42 @@
+:root {
+  --Item-border: 1px solid var(--color-silver);
+}
+
+.Item {
+  border-bottom: var(--Item-border);
+  padding-bottom: calc(var(--space) * 3);
+  padding-top: calc(var(--space) * 2);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.Item-notes > :matches(:--heading) {
+  margin-bottom: calc(var(--space) / 2);
+  margin-top: calc(var(--space) * 1.5);
+}
+
+.Item-control {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: calc(var(--space) / 2) 0;
+  text-decoration: none;
+  vertical-align: baseline;
+
+  & svg {
+    fill: currentColor;
+    height: 1em;
+    margin-top: -0.375em;
+    position: relative;
+    vertical-align: middle;
+    width: 1.5em;
+  }
+}
+
+.Item-preview {
+  padding: calc(var(--space) * 2);
+}

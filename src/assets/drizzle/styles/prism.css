@@ -1,0 +1,60 @@
+/**
+ * Theme for Prism.js
+ */
+
+:matches(code, pre)[class*="language-"] {
+  background-color: color(var(--color-silver) blend(var(--color-white) 50%));
+  color: var(--color-black);
+  cursor: text;
+  direction: ltr;
+  hyphens: none;
+  overflow: auto;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+}
+
+.token {
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata,
+  &.punctuation {
+    color: var(--color-gray);
+  }
+
+  &.string,
+  &.atrule,
+  &.attr-value {
+    color: var(--color-orange);
+  }
+
+  &.property,
+  &.tag {
+    color: var(--color-blue);
+  }
+
+  &.boolean,
+  &.number {
+    color: var(--color-red);
+  }
+
+  &.selector,
+  &.attr-name,
+  &.attr-value .punctuation:first-child,
+  &.keyword,
+  &.regex,
+  &.important {
+    color: var(--color-blue);
+  }
+
+  &.operator,
+  &.entity,
+  &.url {
+    color: var(--color-purple);
+  }
+
+  &.entity {
+    cursor: help;
+  }
+}

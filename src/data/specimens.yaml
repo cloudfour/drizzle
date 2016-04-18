@@ -1,0 +1,16 @@
+alphabet: AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+digits: 0123456789
+punctuation: ". … , · • : ; ¡ ! ¿ ? { } [ ] ( ) / — – - _ * ‹ › « » ‚ ‘ ’ „ “ ” '"
+characters: "| ¦ @ & † ‡ ❡ ¶ § ◊ ^ ~ © ® ℗ ™"
+math: ≈ ~ = ≠ ∙ ÷ ¬ − + ± × ∕ > ≥ ∞ < ≤ % ‰ ∫ ∂ ∆ ∏ ∑ √
+currencies: 1¤ $18 ¢29 €75 ƒ32 ₹572 £68 ¥998’000
+arrows: ↑ ↗ → ↘ ↓ ↙ ← ↖ ↔ ↕
+units: 47µ 100kΩ 21°C \#19 №38 ℮240g 1·5ℓ
+heading: This is a Heading of Words
+sentence: The article is something you would not expect to find in an encyclopedia
+paragraph: |
+  Though Lausanne is so near Geneva, its history, in historical times, has been
+  widely different from that of the neighbouring town. Geneva enjoyed a modified
+  independence from an early date, and became completely independent early in
+  the sixteenth century. Lausanne, until nearly 300 years later, endured the
+  domination, first of Savoy, and subsequently of Berne.
