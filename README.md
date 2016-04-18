@@ -15,6 +15,7 @@ Drizzle is a project template and build tool for creating pattern libraries. It 
 
 - https://fbrctr.github.io
 - http://solid.buzzfeed.com
+- http://patternlab.io
 
 [Gulp]: http://gulpjs.com
 [PostCSS]: http://postcss.org
