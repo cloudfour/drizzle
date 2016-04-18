@@ -1,6 +1,6 @@
 # Drizzle
 
-> A pattern library primer
+> A pattern library authoring environment
 
 ## Install
 
