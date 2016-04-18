@@ -1,17 +1,26 @@
 {
   "name": "drizzle",
-  "version": "0.0.1",
-  "repository": "git@github.com:cloudfour/drizzle.git",
+  "version": "0.0.1-alpha",
+  "author": "Cloud Four",
   "description": "A pattern library authoring environment",
   "homepage": "https://github.com/cloudfour/drizzle",
   "license": "MIT",
   "keywords": [
-    "component",
-    "html",
     "pattern",
     "styleguide",
-    "ui"
+    "component",
+    "framework",
+    "boilerplate",
+    "html",
+    "ui",
+    "css",
+    "bem",
+    "typography"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudfour/drizzle.git"
+  },
   "engines": {
     "node": ">=4.0.0"
   },
@@ -23,12 +32,10 @@
     "core-gulp-tasks": "github:cloudfour/core-gulp-tasks#v0.1.2",
     "core-hbs-helpers": "github:cloudfour/core-hbs-helpers#v0.1",
     "drizzle-builder": "0.0.1-alpha",
-    "eslint": "^2.7.0",
     "eslint-config-xo-space": "^0.12.0",
     "eslint-plugin-babel": "^3.2.0",
-    "gulp": "^3.9.1"
-  },
-  "dependencies": {
+    "eslint": "^2.7.0",
+    "gulp": "^3.9.1",
     "prismjs": "^1.4.1",
     "suitcss-base": "^2.0.0",
     "suitcss-components-arrange": "^1.1.1",
