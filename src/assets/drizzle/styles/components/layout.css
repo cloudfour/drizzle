@@ -32,5 +32,6 @@
   .Layout-main {
     margin-left: var(--Layout-nav-width);
     max-width: 50rem;
+    padding-left: calc(var(--space) * 3);
   }
 }

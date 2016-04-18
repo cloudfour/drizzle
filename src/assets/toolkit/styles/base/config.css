@@ -1,6 +1,21 @@
 :root {
-  --color-green: green;
-  --color-teal: teal;
+  --color-aqua: #7fdbff;
+  --color-blue: #0074d9;
+  --color-lime: #01ff70;
+  --color-navy: #001f3f;
+  --color-teal: #39cccc;
+  --color-olive: #3d9970;
+  --color-green: #2ecc40;
+  --color-red: #ff4136;
+  --color-maroon: #85144b;
+  --color-orange: #ff851b;
+  --color-purple: #b10dc9;
+  --color-yellow: #ffdc00;
+  --color-fuchsia: #f012be;
+  --color-gray: #aaa;
+  --color-white: #fff;
+  --color-black: #111;
+  --color-silver: #f0f0f0;
 }
 
 @custom-media --sm-viewport (min-width:320px) and (max-width:640px);

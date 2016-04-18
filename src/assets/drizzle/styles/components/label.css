@@ -9,7 +9,6 @@
   border-radius: 0.25rem;
   display: inline-block;
   font-size: 0.75rem;
-  line-height: 1;
   padding: calc(var(--space) / 2);
   vertical-align: inherit;
 }
