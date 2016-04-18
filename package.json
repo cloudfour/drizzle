@@ -1,6 +1,7 @@
 {
   "name": "drizzle",
   "version": "0.0.1-alpha",
+  "private": true,
   "author": "Cloud Four",
   "description": "A pattern library authoring environment",
   "homepage": "https://github.com/cloudfour/drizzle",
