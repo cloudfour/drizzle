@@ -1,0 +1,4 @@
+.u-hiddenLink:not(:hover, :focus, :active) {
+  color: inherit !important;
+  text-decoration: none !important;
+}
