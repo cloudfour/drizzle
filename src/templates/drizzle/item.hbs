@@ -1,16 +1,16 @@
 <div class="drizzle-Item drizzle-u-rhythm">
   {{!-- Header, labels --}}
   <div class="drizzle-u-marginEnds">
-    <a href="#{{toSlug data.name}}"
-      class="drizzle-u-inlineBlock drizzle-u-hiddenLink">
-      <h2 id="{{toSlug data.name}}" class="
-       drizzle-u-inlineBlock
-       drizzle-u-alignMiddle
-       drizzle-u-textNoWrap
-       drizzle-u-padRight">
-        {{data.name}}
-      </h2>
-    </a>
+    <h2 id="{{toSlug data.name}}" class="
+     drizzle-u-inlineBlock
+     drizzle-u-alignMiddle
+     drizzle-u-textNoWrap
+     drizzle-u-padRight">
+     <a href="#{{toSlug data.name}}"
+       class="drizzle-u-hiddenLink">
+       {{data.name}}
+     </a>
+    </h2>
     {{#if data.labels}}
       <ul class="
        drizzle-u-inlineBlock
