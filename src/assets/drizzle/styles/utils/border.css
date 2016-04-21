@@ -1,0 +1,23 @@
+.u-border {
+  border: 2px solid var(--color-silver) !important;
+}
+
+.u-borderEnds,
+.u-borderTop {
+  border-top: 2px solid var(--color-silver) !important;
+}
+
+.u-borderSides,
+.u-borderRight {
+  border-right: 2px solid var(--color-silver) !important;
+}
+
+.u-borderEnds,
+.u-borderBottom {
+  border-bottom: 2px solid var(--color-silver) !important;
+}
+
+.u-borderSides,
+.u-borderLeft {
+  border-left: 2px solid var(--color-silver) !important;
+}

@@ -1,6 +1,6 @@
 :root {
   --Nav-background: var(--color-white);
-  --Nav-border: 1px solid var(--color-silver);
+  --Nav-border: 2px solid var(--color-silver);
   --Nav-active-color: inherit;
   --Nav-active-border: var(--color-blue);
 }
@@ -8,10 +8,10 @@
 .Nav {
   background: var(--Nav-background);
   border: var(--Nav-border);
-  border-width: 0 0 1px;
+  border-width: 0 0 2px;
 
   @media (--lg-viewport) {
-    border-width: 0 1px 0;
+    border-width: 0 2px 0;
   }
 }
 
