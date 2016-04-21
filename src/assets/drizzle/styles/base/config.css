@@ -1,3 +1,5 @@
+@use postcss-cssnext;
+
 :root {
   /* Common properties */
   --color-aqua: #7fdbff;
