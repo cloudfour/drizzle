@@ -1,13 +1,13 @@
 <div class="drizzle-Item drizzle-u-rhythm">
   {{!-- Header, labels --}}
   <div class="drizzle-u-marginEnds">
-    <h3 class="
+    <h2 class="
      drizzle-u-inlineBlock
      drizzle-u-alignMiddle
      drizzle-u-textNoWrap
      drizzle-u-padRight">
       {{data.name}}
-    </h3>
+    </h2>
     {{#if data.labels}}
       <ul class="
        drizzle-u-inlineBlock
@@ -45,19 +45,13 @@
     </div>
   {{/if}}
   {{!-- Preview --}}
-  <div class="
-   drizzle-Item-preview
-   drizzle-u-cf
-   drizzle-u-posRelative
-   drizzle-u-rhythm">
-    {{{pattern id @root}}}
+  <div class="drizzle-u-border">
+    <div class="drizzle-u-pad drizzle-u-cf drizzle-u-posRelative">
+      {{{pattern id @root}}}
+    </div>
+    {{!-- Code sample --}}
+    {{#unless data.sourceless}}
+      <pre class="drizzle-u-borderTop"><code class="language-markup">{{{patternSource id @root}}}</code></pre>
+    {{/unless}}
   </div>
-  {{!-- Code sample --}}
-  {{#unless data.sourceless}}
-    <pre>
-      <code class="language-markup">
-        {{{patternSource id @root}}}
-      </code>
-    </pre>
-  {{/unless}}
 </div>

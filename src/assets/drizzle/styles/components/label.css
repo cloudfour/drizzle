@@ -1,14 +1,16 @@
 :root {
+  --Label-default: var(--color-silver);
   --Label-inprogress: var(--color-yellow);
   --Label-deprecated: var(--color-red);
   --Label-approved: var(--color-green);
 }
 
 .Label {
-  background-color: rgba(0,0,0,0.1);
+  background-color: var(--Label-default);
   border-radius: 0.25rem;
   display: inline-block;
   font-size: 0.75rem;
+  line-height: 1;
   padding: calc(var(--space) / 2);
   vertical-align: inherit;
 }
