@@ -1,3 +1,5 @@
+@use postcss-cssnext;
+
 :root {
   --color-aqua: #7fdbff;
   --color-blue: #0074d9;
