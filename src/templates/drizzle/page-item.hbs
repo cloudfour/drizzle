@@ -1,0 +1,36 @@
+<div class="drizzle-Item">
+  <div class="drizzle-Grid drizzle-Grid--withGutter">
+    <div class="drizzle-Grid-cell drizzle-u-md-size1of3">
+      <div class="drizzle-FrameThumb" data-drizzle-append-iframe="./{{@key}}.html" aria-hidden="true">
+        <a href="./{{@key}}.html"></a>
+      </div>
+    </div>
+    <div class="drizzle-Grid-cell drizzle-u-md-size2of3">
+      <div class="drizzle-u-marginEnds">
+        <h4 class="
+         drizzle-u-inlineBlock
+         drizzle-u-alignMiddle
+         drizzle-u-textNoWrap
+         drizzle-u-padRight">
+          <a href="./{{@key}}.html">{{data.title}}</a>
+        </h4>
+        {{#if data.labels}}
+          <ul class="
+           drizzle-u-inlineBlock
+           drizzle-u-alignMiddle">
+            {{#each data.labels}}
+              <li class="drizzle-Label drizzle-Label--{{this}}">
+                {{this}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </div>
+      {{#if data.notes}}
+        <div class="drizzle-Item-notes drizzle-u-rhythm">
+          {{{data.notes}}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
