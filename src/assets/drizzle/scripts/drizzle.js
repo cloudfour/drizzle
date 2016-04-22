@@ -24,3 +24,19 @@ dom.navToggle.addEventListener('click', event => {
 });
 
 setActiveNavItem(window.location.pathname);
+
+dom.frameContainers = document.querySelectorAll('[data-drizzle-append-iframe]');
+
+if (dom.frameContainers.length) {
+  window.addEventListener('load', () => {
+    Array.from(dom.frameContainers).forEach(container => {
+      const src = container.getAttribute('data-drizzle-append-iframe');
+      const iframe = document.createElement('iframe');
+      iframe.addEventListener('load', () => {
+        container.classList.add('is-loaded');
+      });
+      iframe.setAttribute('src', src);
+      container.appendChild(iframe);
+    });
+  });
+}

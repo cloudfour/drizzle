@@ -1,0 +1,53 @@
+:root {
+  --FrameThumb-background: no-repeat center/20% var(--FrameThumb-icon) var(--FrameThumb-background-color);
+  --FrameThumb-background-color: var(--color-silver);
+  --FrameThumb-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 22' width='17' height='22' fill='white'><polygon points='0 0 10 0 10 7 17 7 17 22 0 22'/><polygon points='11 0 17 6 11 6'/></svg>");
+  --FrameThumb-ratio: calc(16 / 9);
+  --FrameThumb-link-border: 2px solid rgba(0,0,0,0.1);
+  --FrameThumb-iframe-background: var(--color-white);
+  --FrameThumb-iframe-scale: 0.5;
+}
+
+.FrameThumb {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-top: calc(1 / var(--FrameThumb-ratio) * 100%);
+  background: var(--FrameThumb-background);
+}
+
+.FrameThumb > a {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: var(--FrameThumb-link-border);
+}
+
+/**
+ * 1. Multiply the dimenions of the iframe to counteract whatever scaling will
+ *    be applied via transform. 1% wiggle room is added to avoid blurry edges
+ *    along the top and bottom.
+ * 2. Scale the iframe back down to the container size. This gives us a "zoomed
+ *    out" view of the page within the thumbnail.
+ */
+
+.FrameThumb > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: calc((1 / var(--FrameThumb-iframe-scale)) * 100% + 1%); /* 1 */
+  height: calc((1 / var(--FrameThumb-iframe-scale)) * 100% + 1%); /* 1 */
+  border: 0;
+  background: var(--FrameThumb-iframe-background);
+  transform: scale(var(--FrameThumb-iframe-scale)); /* 2 */
+  transform-origin: top left; /* 2 */
+}
+
+.FrameThumb.is-loaded > iframe {
+  visibility: visible;
+}
