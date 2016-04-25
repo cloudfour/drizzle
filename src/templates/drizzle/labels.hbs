@@ -1,11 +1,9 @@
-{{#if data.labels}}
-  <ul class="
-   drizzle-u-inlineBlock
-   drizzle-u-alignMiddle">
-    {{#each data.labels as |label|}}
-      <li class="drizzle-Label drizzle-Label--{{label}}">
-        {{label}}
-      </li>
-    {{/each}}
-  </ul>
-{{/if}}
+<ul class="
+ drizzle-u-inlineBlock
+ drizzle-u-alignMiddle">
+  {{#each labels as |label|}}
+    <li class="drizzle-Label drizzle-Label--{{label}}">
+      {{label}}
+    </li>
+  {{/each}}
+</ul>

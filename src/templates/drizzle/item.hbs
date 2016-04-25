@@ -11,7 +11,9 @@
         {{data.name}}
       </a>
     </h2>
-    {{> drizzle.labels}}
+    {{#if data.labels}}
+      {{> drizzle.labels labels=data.labels}}
+    {{/if}}
   </div>
   {{!-- Notes --}}
   {{#if data.notes}}
