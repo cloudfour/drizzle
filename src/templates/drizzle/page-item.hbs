@@ -14,17 +14,7 @@
          drizzle-u-padRight">
           <a href="./{{@key}}.html">{{data.title}}</a>
         </h4>
-        {{#if data.labels}}
-          <ul class="
-           drizzle-u-inlineBlock
-           drizzle-u-alignMiddle">
-            {{#each data.labels}}
-              <li class="drizzle-Label drizzle-Label--{{this}}">
-                {{this}}
-              </li>
-            {{/each}}
-          </ul>
-        {{/if}}
+        {{> drizzle.labels}}
       </div>
       {{#if data.notes}}
         <div class="drizzle-Item-notes drizzle-u-rhythm">
