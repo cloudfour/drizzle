@@ -4,11 +4,11 @@
   drizzle-u-textNoWrap
   drizzle-u-padRight">
   {{#if key}}
-    <a href="./{{key}}.html">{{title}}</a>
+    <a href="./{{key}}.html">{{> @partial-block }}</a>
   {{else if id}}
-    <a href="#{{id}}" class="drizzle-u-linkHidden">{{title}}</a>
+    <a href="#{{id}}" class="drizzle-u-linkHidden">{{> @partial-block }}</a>
   {{else}}
-    {{title}}
+    {{> @partial-block }}
   {{/if}}
 </{{tag}}>
 {{#if labels}}
