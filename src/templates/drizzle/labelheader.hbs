@@ -1,16 +1,20 @@
-{{#block "heading"}}
-  <h4 class="
-   drizzle-u-inlineBlock
-   drizzle-u-alignMiddle
-   drizzle-u-textNoWrap
-   drizzle-u-padRight">
+<{{tag}} {{#if id}}id="{{id}}"{{/if}} class="
+  drizzle-u-inlineBlock
+  drizzle-u-alignMiddle
+  drizzle-u-textNoWrap
+  drizzle-u-padRight">
+  {{#if key}}
     <a href="./{{key}}.html">{{title}}</a>
-  </h4>
-{{/block}}
+  {{else if id}}
+    <a href="#{{id}}" class="drizzle-u-linkHidden">{{title}}</a>
+  {{else}}
+    {{title}}
+  {{/if}}
+</{{tag}}>
 {{#if labels}}
   <ul class="
-   drizzle-u-inlineBlock
-   drizzle-u-alignMiddle">
+    drizzle-u-inlineBlock
+    drizzle-u-alignMiddle">
     {{#each labels as |label|}}
       <li class="drizzle-Label drizzle-Label--{{label}}">
         {{label}}

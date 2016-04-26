@@ -1,7 +1,9 @@
 <div class="drizzle-Item drizzle-u-rhythm">
   {{!-- Header, labels --}}
   <div class="drizzle-u-marginEnds">
-    {{> drizzle.labelheader-anchorid name=data.name labels=data.labels}}
+    {{#> drizzle.labelheader tag="h2" title=data.title id=(toSlug data.title) labels=data.labels}}
+      {{data.title}}
+    {{/drizzle.labelheader}}
   </div>
   {{!-- Notes --}}
   {{#if data.notes}}
