@@ -1,0 +1,20 @@
+{{#block "heading"}}
+  <h4 class="
+   drizzle-u-inlineBlock
+   drizzle-u-alignMiddle
+   drizzle-u-textNoWrap
+   drizzle-u-padRight">
+    <a href="./{{key}}.html">{{title}}</a>
+  </h4>
+{{/block}}
+{{#if labels}}
+  <ul class="
+   drizzle-u-inlineBlock
+   drizzle-u-alignMiddle">
+    {{#each labels as |label|}}
+      <li class="drizzle-Label drizzle-Label--{{label}}">
+        {{label}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

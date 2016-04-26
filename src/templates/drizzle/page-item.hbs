@@ -7,16 +7,7 @@
     </div>
     <div class="drizzle-Grid-cell drizzle-u-md-size2of3">
       <div class="drizzle-u-marginEnds">
-        <h4 class="
-         drizzle-u-inlineBlock
-         drizzle-u-alignMiddle
-         drizzle-u-textNoWrap
-         drizzle-u-padRight">
-          <a href="./{{@key}}.html">{{data.title}}</a>
-        </h4>
-        {{#if data.labels}}
-          {{> drizzle.labels labels=data.labels}}
-        {{/if}}
+        {{> drizzle.labelheader key=@key title=data.title labels=data.labels}}
       </div>
       {{#if data.notes}}
         <div class="drizzle-Item-notes drizzle-u-rhythm">
