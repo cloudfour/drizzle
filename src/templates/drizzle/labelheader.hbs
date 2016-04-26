@@ -3,9 +3,7 @@
   drizzle-u-alignMiddle
   drizzle-u-textNoWrap
   drizzle-u-padRight">
-  {{#if key}}
-    <a href="./{{key}}.html">{{> @partial-block }}</a>
-  {{else if id}}
+  {{#if id}}
     <a href="#{{id}}" class="drizzle-u-linkHidden">{{> @partial-block }}</a>
   {{else}}
     {{> @partial-block }}

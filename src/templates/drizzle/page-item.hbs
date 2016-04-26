@@ -7,8 +7,8 @@
     </div>
     <div class="drizzle-Grid-cell drizzle-u-md-size2of3">
       <div class="drizzle-u-marginEnds">
-        {{#> drizzle.labelheader tag="h4" key=@key labels=data.labels}}
-          {{data.title}}
+        {{#> drizzle.labelheader tag="h4" labels=data.labels}}
+          <a href="./{{@key}}.html">{{data.title}}</a>
         {{/drizzle.labelheader}}
       </div>
       {{#if data.notes}}
