@@ -2,7 +2,7 @@
   --Swatch-sample-stroke: rgba(0, 0, 0, 0.1);
   --Swatch-sample-stroke-width: 2px;
   --Swatch-sample-width: 10em;
-  --Swatch-sample-height: 5.625em;
+  --Swatch-sample-height: calc(var(--Swatch-sample-width) * (9 / 16)); /* 16:9 */
   --Swatch-info-padding: calc(var(--space) / 4);
 }
 
@@ -24,7 +24,7 @@
   display: block;
   width: var(--Swatch-sample-width);
   height: var(--Swatch-sample-height);
-  stroke: rgba(0, 0, 0, 0.1);
+  stroke: var(--Swatch-sample-stroke);
   stroke-width: calc(var(--Swatch-sample-stroke-width) * 2); /* 1 */
 }
 
