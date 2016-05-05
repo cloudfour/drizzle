@@ -28,3 +28,16 @@ title: Overview
     anything else that might not be production-ready.
   </dd>
 </dl>
+
+<h3>Colors</h3>
+
+{{#each drizzle.data.colors.contents}}
+  <h4 class="drizzle-u-capitalize">{{@key}}</h4>
+  <ul class="drizzle-u-listInline">
+    {{#each this}}
+      <li class="drizzle-u-marginBottom">
+        {{> drizzle.swatch }}
+      </li>
+    {{/each}}
+  </ul>
+{{/each}}

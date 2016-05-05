@@ -1,0 +1,38 @@
+:root {
+  --Swatch-sample-stroke: rgba(0, 0, 0, 0.1);
+  --Swatch-sample-stroke-width: 2px;
+  --Swatch-sample-width: 10em;
+  --Swatch-sample-height: 5.625em;
+  --Swatch-info-padding: calc(var(--space) / 4);
+}
+
+.Swatch {
+  margin: 0;
+  display: inline-block;
+}
+
+.Swatch > * {
+  margin: 0;
+}
+
+/**
+ * 1. Double the intended stroke-width because only the inner half will be
+ *    within the visible viewBox.
+ */
+
+.Swatch-sample {
+  display: block;
+  width: var(--Swatch-sample-width);
+  height: var(--Swatch-sample-height);
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: calc(var(--Swatch-sample-stroke-width) * 2); /* 1 */
+}
+
+.Swatch-info {
+  padding: var(--Swatch-info-padding);
+}
+
+.Swatch-info > * {
+  margin: 0;
+  white-space: nowrap;
+}

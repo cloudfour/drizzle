@@ -1,0 +1,25 @@
+brand:
+  - color: "#001F3F"
+    property: "--color-navy"
+  - color: "#0074D9"
+    property: "--color-blue"
+  - color: "#7FDBFF"
+    property: "--color-aqua"
+  - color: "#39CCCC"
+    property: "--color-teal"
+
+grays:
+  - color: "#111111"
+    property: "--color-black"
+  - color: "#AAAAAA"
+    property: "--color-gray"
+  - color: "#DDDDDD"
+    property: "--color-silver"
+
+states:
+  - color: "#2ECC40"
+    property: "--color-green"
+  - color: "#FFDC00"
+    property: "--color-yellow"
+  - color: "#FF4136"
+    property: "--color-red"
