@@ -1,9 +1,13 @@
+.u-listUnstyled,
+.u-listInline {
+  padding-left: 0;
+  list-style: none;
+}
+
 .u-listInline {
   position: relative;
   margin-right: -0.5em;
   margin-left: -0.5em;
-  padding-left: 0;
-  list-style: none;
 }
 
 .u-listInline > li {
