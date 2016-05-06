@@ -1,5 +1,5 @@
 ---
-title: Navigation A
+title: First Demo Example
 notes: This is an example demo.
 layout: blank
 labels:
@@ -10,3 +10,13 @@ styles:
 ---
 
 <h1>{{title}}</h1>
+
+{{#each drizzle.data.articles.contents}}
+  <article>
+    <header>
+      <h2>{{title}}</h2>
+      <p>Published: <time pubdate="pubdate">{{date}}</time></p>
+    </header>
+    <p>{{{body}}}</p>
+  </article>
+{{/each}}

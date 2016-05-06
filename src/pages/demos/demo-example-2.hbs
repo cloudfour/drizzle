@@ -1,5 +1,5 @@
 ---
-title: Navigation B
+title: Second Demo Example
 notes: This is an example demo.
 layout: blank
 styles:
@@ -7,3 +7,10 @@ styles:
 ---
 
 <h1>{{title}}</h1>
+
+<p>Data below courtesy of <a href="http://www.radfaces.com">Rad Faces</a>.</p>
+<ul>
+  {{#each drizzle.data.radfaces.contents}}
+    <li>{{first_name}} {{last_name}} from {{location}}</li>
+  {{/each}}
+</ul>
