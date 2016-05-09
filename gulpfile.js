@@ -8,11 +8,12 @@ const env = require('gulp-util').env;
 const config = require('./config');
 
 // Append config
-Object.assign(config.drizzle, {helpers});
+Object.assign(config.drizzle, { helpers });
 
 // Register core tasks
 [
   'clean',
+  'copy',
   'js',
   'serve',
   'watch'
@@ -32,6 +33,7 @@ gulp.task('drizzle', () => {
 // Register frontend composite task
 gulp.task('frontend', [
   'drizzle',
+  'copy',
   'css',
   'js'
 ]);

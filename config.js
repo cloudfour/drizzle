@@ -14,6 +14,11 @@ module.exports = {
     name: 'css:drizzle'
   },
 
+  copy: {
+    src: './src/static/**/*',
+    dest: './dist'
+  },
+
   js: {
     plugins: {
       webpack: {
@@ -48,13 +53,17 @@ module.exports = {
         open: false,
         notify: false,
         files: ['./dist/**/*'],
-        server: {baseDir: './dist'}
+        server: { baseDir: './dist' }
       }
     }
   },
 
   watch: {
     watchers: [
+      {
+        match: ['./src/static/**/*'],
+        tasks: ['copy']
+      },
       {
         match: ['./src/assets/**/*.css'],
         tasks: ['css']
