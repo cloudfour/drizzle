@@ -83,6 +83,19 @@ module.exports = {
   },
 
   drizzle: {
+    beautifier: {
+      /* eslint-disable camelcase */
+      indent_char: ' ',
+      indent_size: 2,
+      indent_with_tabs: false,
+      max_preserve_newlines: 1,
+      wrap_line_length: 0,
+      unformatted:
+        `a abbr acronym address b bdo big cite code col del dfn dt em font
+        h1 h2 h3 h4 h5 h6 i img ins kbd mark pre q s samp small span
+        strike strong sub sup tt u var`.split(' ')
+      /* eslint-enable camelcase */
+    },
     src: {
       patterns: {
         basedir: './src/patterns',
