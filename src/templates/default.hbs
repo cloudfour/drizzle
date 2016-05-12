@@ -10,11 +10,11 @@
         {{#block "body"}}
 
         {{/block}}
-        {{#block "footer"}}
-          <script src="{{baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
-          <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
-        {{/block}}
       </div>
     </div>
+  {{/content}}
+  {{#content "footer"}}
+    <script src="{{baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
+    <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
   {{/content}}
 {{/extend}}
