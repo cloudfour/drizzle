@@ -16,11 +16,14 @@
       {{/each}}
     {{/block}}
   </head>
-  {{#block "wrapper"}}
-    <body>
+  <body class="{{bodyclass}}">
+    {{#block "wrapper"}}
       {{#block "body"}}
 
       {{/block}}
-    </body>
-  {{/block}}
+    {{/block}}
+    {{#block "foot"}}
+
+    {{/block}}
+  </body>
 </html>
