@@ -28,36 +28,6 @@
   padding-top: var(--space) !important;
 }
 
-.u-noPad {
-  padding: 0 !important;
-}
-
-.u-noPadLeft {
-  padding-left: 0 !important;
-}
-
-.u-noPadRight {
-  padding-right: 0 !important;
-}
-
-.u-noPadSides {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.u-noPadTop {
-  padding-top: 0 !important;
-}
-
-.u-noPadBottom {
-  padding-bottom: 0 !important;
-}
-
-.u-noPadEnds {
-  padding-bottom: 0 !important;
-  padding-top: 0 !important;
-}
-
 .u-margin {
   margin: var(--space) !important;
 }
