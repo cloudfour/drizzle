@@ -5,11 +5,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       {{#if title}}
-        <title>{{title}} - Drizzle</title>
+        <title>{{title}} - {{data "project.title"}}</title>
       {{else if name}}
-        <title>{{name}} - Drizzle</title>
+        <title>{{name}} - {{data "project.title"}}</title>
       {{else}}
-        <title>Drizzle</title>
+        <title>{{data "project.title"}}</title>
       {{/if}}
       {{#each styles}}
         <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{this}}.css">
