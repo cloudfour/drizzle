@@ -6,8 +6,6 @@ title: Demos
 
 <p>These are some demos.</p>
 
-{{#each drizzle.pages.demos}}
-  {{#compare @key "!==" "index"}}
-    {{> drizzle.page-item }}
-  {{/compare}}
+{{#each (pages "demos" ignore="index")}}
+  {{> drizzle.page-item }}
 {{/each}}

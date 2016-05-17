@@ -31,7 +31,7 @@ title: Overview
 
 <h3>Colors</h3>
 
-{{#each drizzle.data.colors.contents}}
+{{#each (data "colors")}}
   <h4 class="drizzle-u-capitalize">{{@key}}</h4>
   <ul class="drizzle-u-listInline">
     {{#each this}}
