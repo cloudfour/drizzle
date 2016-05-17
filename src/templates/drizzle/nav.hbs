@@ -1,3 +1,9 @@
+{{#*inline "nav-item"}}
+  <a class="drizzle-Nav-item" href="{{baseurl}}/{{url}}">
+    {{label}}
+  </a>
+{{/inline}}
+
 <div class="drizzle-Layout-nav drizzle-Nav" id="nav">
   <div class="drizzle-Nav-header">
     <a href="/">
@@ -11,99 +17,44 @@
   </div>
   <div class="drizzle-Nav-main">
     <ul class="drizzle-Nav-menu" id="nav-menu">
-      {{!-- WIP tree usage
-      <!--
-      {
-        pages: {
-          children: [
-            [Object],
-            [Object]
-          ],
-          items: [
-            [Object]
-          ]
-        },
-        collections: {
-          children: [
-            [Object],
-            [Object]
-          ]
-        }
-      }
-      -->
-      {{#with drizzle.tree}}
-        {{#each pages.items}}
-          {{log path}}
-        {{/each}}
-        {{#each collections.children}}
-          {{#each items}}
-            {{log path}}
-          {{/each}}
-        {{/each}}
-        {{#each pages.children}}
-          {{#each items}}
-            {{log path}}
-          {{/each}}
-        {{/each}}
-      {{/with}}
-      --}}
-
       {{!-- Top-level pages --}}
-      {{#each drizzle.pages}}
-        {{#if contents}}
-          <li>
-            <a class="drizzle-Nav-item" href="/{{@key}}.html">
-              {{data.title}}
-            </a>
-          </li>
-        {{/if}}
+      {{#each (pages)}}
+        <li>
+          {{> nav-item label=data.title}}
+        </li>
       {{/each}}
       {{!-- Patterns --}}
-      {{#each drizzle.patterns}}
+      {{#each (collections)}}
         <li>
-          <a class="drizzle-Nav-item" href="/patterns/{{@key}}.html">
-            {{collection.name}}
-          </a>
+          {{> nav-item label=name}}
         </li>
       {{/each}}
       {{!-- Demo pages --}}
-      {{#with drizzle.pages.demos}}
-        <li>
-          <a class="drizzle-Nav-item" href="/demos/index.html">
-            {{index.data.title}}
-          </a>
-          <ul class="drizzle-Nav-menu">
-            {{#each this}}
-              {{#compare @key "!==" "index"}}
-                <li>
-                  <a class="drizzle-Nav-item" href="/demos/{{@key}}.html">
-                    {{data.title}}
-                  </a>
-                </li>
-              {{/compare}}
-            {{/each}}
-          </ul>
-        </li>
-      {{/with}}
+      <li>
+        {{#with (page "demos/index")}}
+          {{> nav-item label=data.title}}
+        {{/with}}
+        <ul class="drizzle-Nav-menu">
+          {{#each (pages "demos" ignore="index")}}
+            <li>
+              {{> nav-item label=data.title}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
       {{!-- Docs pages --}}
-      {{#with drizzle.pages.docs}}
-        <li>
-          <a class="drizzle-Nav-item" href="/docs/index.html">
-            {{index.data.title}}
-          </a>
-          <ul class="drizzle-Nav-menu">
-            {{#each this}}
-              {{#compare @key "!==" "index"}}
-                <li>
-                  <a class="drizzle-Nav-item" href="/docs/{{@key}}.html">
-                    {{data.title}}
-                  </a>
-                </li>
-              {{/compare}}
-            {{/each}}
-          </ul>
-        </li>
-      {{/with}}
+      <li>
+        {{#with (page "docs/index")}}
+          {{> nav-item label=data.title}}
+        {{/with}}
+        <ul class="drizzle-Nav-menu">
+          {{#each (pages "docs" ignore="index")}}
+            <li>
+              {{> nav-item label=data.title}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
