@@ -10,7 +10,7 @@ styles:
 
 <p>Data below courtesy of <a href="http://www.radfaces.com">Rad Faces</a>.</p>
 <ul>
-  {{#each drizzle.data.radfaces.contents}}
+  {{#each (data "radfaces")}}
     <li>{{first_name}} {{last_name}} from {{location}}</li>
   {{/each}}
 </ul>
