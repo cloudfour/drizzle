@@ -12,7 +12,7 @@
         <title>{{data "project.title"}}</title>
       {{/if}}
       {{#each styles}}
-        <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/{{this}}.css">
+        <link rel="stylesheet" href="{{@root.baseurl}}/assets/toolkit/styles/{{this}}.css">
       {{/each}}
     {{/block}}
   </head>

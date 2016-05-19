@@ -1,7 +1,7 @@
 {{#extend "blank" htmlclass="drizzle-Layout" bodyclass="drizzle-Layout-body"}}
   {{#content "head" mode="append"}}
-    <link rel="stylesheet" href="{{baseurl}}/assets/drizzle/styles/drizzle.css">
-    <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
+    <link rel="stylesheet" href="{{@root.baseurl}}/assets/drizzle/styles/drizzle.css">
+    <link rel="stylesheet" href="{{@root.baseurl}}/assets/toolkit/styles/toolkit.css">
   {{/content}}
   {{#content "body"}}
     {{> drizzle.nav}}
@@ -14,7 +14,7 @@
     </div>
   {{/content}}
   {{#content "foot"}}
-    <script src="{{baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
-    <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
+    <script src="{{@root.baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
+    <script src="{{@root.baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
   {{/content}}
 {{/extend}}
