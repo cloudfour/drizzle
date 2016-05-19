@@ -1,12 +1,12 @@
 {{#*inline "nav-item"}}
-  <a class="drizzle-Nav-item" href="{{baseurl}}/{{url}}">
+  <a class="drizzle-Nav-item" href="{{@root.baseurl}}/{{url}}">
     {{label}}
   </a>
 {{/inline}}
 
 <div class="drizzle-Layout-nav drizzle-Nav" id="nav">
   <div class="drizzle-Nav-header">
-    <a href="/">
+    <a href="{{baseurl}}/">
       {{> drizzle.logo}}
     </a>
     <a class="drizzle-Nav-header-toggle" href="#nav">
