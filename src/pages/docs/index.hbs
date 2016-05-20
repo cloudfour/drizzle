@@ -7,7 +7,7 @@ title: Documentation
 <ul>
   {{#each (pages "docs" ignore="index")}}
     <li>
-      <a href="{{baseurl}}/{{url}}">{{data.title}}</a>
+      <a href="{{@root.baseurl}}/{{url}}">{{data.title}}</a>
     </li>
   {{/each}}
 </ul>
