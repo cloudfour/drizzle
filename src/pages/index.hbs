@@ -1,5 +1,6 @@
 ---
 title: Overview
+order: 1
 ---
 
 <h1>{{title}}</h1>
@@ -11,33 +12,33 @@ title: Overview
   documentation.
 </p>
 
-<h3>Sections</h3>
+<h3>Some Pages</h3>
+
 <dl>
-  <dt><a href="{{@root.baseurl}}/patterns/typography.html">Typography</a></dt>
-  <dd class="drizzle-u-padBottom">
-    Examples of foundational typographic elements like headings, paragraphs
-    and lists.
-  </dd>
-  <dt><a href="{{@root.baseurl}}/docs">Docs</a></dt>
-  <dd class="drizzle-u-padBottom">
-    General documentation of naming conventions and template usage.
-  </dd>
-  <dt><a href="{{@root.baseurl}}/demos">Demos</a></dt>
-  <dd class="drizzle-u-padBottom">
-    A collection of mockups, demonstrations, proofs-of-concept or
-    anything else that might not be production-ready.
-  </dd>
+  {{#with (page "colors")}}
+    <dt>
+      <a href="{{@root.baseurl}}/{{url}}">{{data.title}}</a>
+    </dt>
+    <dd class="drizzle-u-padBottom">
+      {{{data.notes}}}
+    </dd>
+  {{/with}}
+
+  {{#with (page "docs/index")}}
+    <dt>
+      <a href="{{@root.baseurl}}/{{url}}">{{data.title}}</a>
+    </dt>
+    <dd class="drizzle-u-padBottom">
+      {{{data.notes}}}
+    </dd>
+  {{/with}}
+
+  {{#with (page "demos/index")}}
+    <dt>
+      <a href="{{@root.baseurl}}/{{url}}">{{data.title}}</a>
+    </dt>
+    <dd class="drizzle-u-padBottom">
+      {{{data.notes}}}
+    </dd>
+  {{/with}}
 </dl>
-
-<h3>Colors</h3>
-
-{{#each (data "colors")}}
-  <h4 class="drizzle-u-capitalize">{{@key}}</h4>
-  <ul class="drizzle-u-listInline">
-    {{#each this}}
-      <li class="drizzle-u-marginBottom">
-        {{> drizzle.swatch }}
-      </li>
-    {{/each}}
-  </ul>
-{{/each}}
