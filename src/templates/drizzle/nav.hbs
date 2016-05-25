@@ -1,3 +1,4 @@
+{{!-- Nav item partial --}}
 {{#*inline "nav-item"}}
   <a class="drizzle-Nav-item" href="{{@root.baseurl}}/{{url}}">
     {{label}}
@@ -15,45 +16,45 @@
       </svg>
     </a>
   </div>
-  <div class="drizzle-Nav-main">
-    <ul class="drizzle-Nav-menu" id="nav-menu">
-      {{!-- Top-level pages --}}
-      {{#each (pages)}}
+  <div class="drizzle-Nav-main" id="nav-menu">
+    {{!-- Top-level pages --}}
+    <ul class="drizzle-Nav-menu">
+      {{#each (pages sortby="order")}}
         <li>
           {{> nav-item label=data.title}}
         </li>
       {{/each}}
-      {{!-- Patterns --}}
-      {{#each (collections)}}
+    </ul>
+    {{!-- Element Patterns --}}
+    <h5 class="drizzle-Nav-item drizzle-u-marginTop">Elements</h5>
+    <ul class="drizzle-Nav-menu">
+      {{#each (collections "elements" sortby="order")}}
         <li>
           {{> nav-item label=name}}
         </li>
       {{/each}}
-      {{!-- Demo pages --}}
-      <li>
-        {{#with (page "demos/index")}}
-          {{> nav-item label=data.title}}
-        {{/with}}
-        <ul class="drizzle-Nav-menu">
-          {{#each (pages "demos" ignore="index")}}
-            <li>
-              {{> nav-item label=data.title}}
-            </li>
-          {{/each}}
-        </ul>
-      </li>
-      {{!-- Docs pages --}}
+    </ul>
+    {{!-- Component Patterns --}}
+    <h5 class="drizzle-Nav-item drizzle-u-marginTop">Components</h5>
+    <ul class="drizzle-Nav-menu">
+      {{#each (collections "components" sortby="order")}}
+        <li>
+          {{> nav-item label=name}}
+        </li>
+      {{/each}}
+    </ul>
+    {{!-- Other pages --}}
+    <h5 class="drizzle-Nav-item drizzle-u-marginTop">Other Stuff</h5>
+    <ul class="drizzle-Nav-menu">
       <li>
         {{#with (page "docs/index")}}
           {{> nav-item label=data.title}}
         {{/with}}
-        <ul class="drizzle-Nav-menu">
-          {{#each (pages "docs" ignore="index")}}
-            <li>
-              {{> nav-item label=data.title}}
-            </li>
-          {{/each}}
-        </ul>
+      </li>
+      <li>
+        {{#with (page "demos/index")}}
+          {{> nav-item label=data.title}}
+        {{/with}}
       </li>
     </ul>
   </div>
