@@ -1,0 +1,8 @@
+# Override the default folder-based name ("Typographic")
+name: Type
+
+# Make this appear before its sibling collections in listings
+order: 1
+
+notes: |
+  Examples of foundational typographic elements like headings, paragraphs and lists.
