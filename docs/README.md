@@ -57,9 +57,6 @@ CSS files for your toolkit belong in **src/assets/toolkit/styles**:
 
 ```
 assets/toolkit/styles
-├── core
-│   ├── config.css
-│   └── base.css
 └── toolkit.css
 ```
 
@@ -70,7 +67,7 @@ src/assets/toolkit/scripts
 └── toolkit.js
 ```
 
-Refer to the [Configuration](#configuration) section for information on how CSS and JavaScript assets are processed at build time.
+_Refer to the [Configuration](#configuration) section for information on how CSS and JavaScript assets are processed at build time._
 
 ## Templates
 
@@ -79,22 +76,18 @@ Drizzle uses the [Handlebars](handlebars) template engine. Template files for yo
 ```
 src/templates
 ├── drizzle
-│   ├── item.hbs
-│   ├── labelheader.hbs
-│   ├── logo.hbs
-│   ├── nav.hbs
-│   ├── page-item.hbs
-│   └── swatch.hbs
 ├── blank.hbs
 ├── collection.hbs
 └── default.hbs
 ```
 
-Templates differ from Patterns and Pages in a few ways:
+The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
 
-- They are for presentational UI (to _display_ rather than to _be_ content).
-- They do not utilize front-matter data.
+- They are for _presenting_ content (opposed to _being_ content).
+- They do not utilize [front-matter](front-matter) data.
 - They cannot be iterated over in any way.
+
+### Layout templates
 
 Files at the top-level of the templates directory are assumed to be layout templates:
 
@@ -104,7 +97,7 @@ Files at the top-level of the templates directory are assumed to be layout templ
 | **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI.
 | **collection.hbs** | This is used for concatenating Pattern collections  into a single page.
 
-These layout templates can be referenced and assigned by a Page's front-matter data:
+[Pages](#pages) can use these layout templates by referencing them in the **layout** property of their [front-matter](front-matter) data:
 
 ```yaml
 title: Demo Page
@@ -115,7 +108,7 @@ _Refer to the [Recipes](#recipes) section for examples of how to extend and crea
 
 ## Helpers
 
-Template helper files belong in **src/helpers**:
+[Handlebars](handlebars) helper functions belong in **src/helpers**:
 
 ```
 
@@ -124,9 +117,9 @@ Template helper files belong in **src/helpers**:
 - [ ] **TODO**: Add example ^
 - [ ] **TODO**: Explain how files in this directory get registered as helpers.
 
-A handful of helpers are included by default to assist with looking up and listing data, Pages, and Patterns.
+A handful of helpers are included by default to assist with looking up and listing [Data](#data), [Pages](#pages), and [Patterns](#patterns).
 
-**{{data}}** provides access to data files:
+**{{data}}** provides access to [Data](#data):
 
 ```hbs
 {{#with (data "articles/3")}}
@@ -134,7 +127,7 @@ A handful of helpers are included by default to assist with looking up and listi
 {{/with}}
 ```
 
-**{{pages}}** provides access to Page listings:
+**{{pages}}** provides access to [Page](#pages) listings:
 
 ```hbs
 <ul>
@@ -146,7 +139,7 @@ A handful of helpers are included by default to assist with looking up and listi
 </ul>
 ```
 
-**{{collections}}** provides access to Pattern collection listings:
+**{{collections}}** provides access to [Pattern collection](#patterncollections) listings:
 
 ```hbs
 <ul>
@@ -236,14 +229,14 @@ Accessing values can be done with the `{{data}}` template helper. For example:
 
 ```yaml
 # src/data/team.yaml
--
-  name: Pete
+
+- name: Pete
   photo: pete.jpg
--
-  name: Paul
+  
+- name: Paul
   photo: paul.jpg
--
-  name: Mary
+  
+- name: Mary
   photo: mary.jpg
 ```
 
@@ -263,7 +256,7 @@ Results in:
 <img src="mary.jpg" alt="Mary">
 ```
 
-_Refer to the sections for [Patterns](#pattern-metadata) and [Pages](#pages) for examples of how data can also be associated directly to resources using [front-matter](front-matter)._
+_Refer to the sections for [Patterns](#patternmetadata) and [Pages](#pages) for examples of how data can also be associated directly to resources using [front-matter](front-matter)._
 
 ## Patterns
 
@@ -272,16 +265,11 @@ Pattern template files belong in **src/patterns**:
 ```
 src/patterns
 ├── components
-│   ├── button
-│   └── grid
 └── elements
-    ├── forms
-    └── typographic
+
 ```
 
-### Organizing patterns
-
-The default structure shows how you might organize patterns classified as **components** and **elements**, but you can use any naming convention you prefer:
+The default structure shows how you might organize patterns classified as **components** and **elements**, but you can use any naming convention you prefer for the folders:
 
 ```
 src/patterns
@@ -289,6 +277,8 @@ src/patterns
 ├── molecules
 └── organisms
 ```
+
+### Pattern collections
 
 A "Pattern" is simply any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension.
 
@@ -318,7 +308,7 @@ _Refer to the [Recipes](#recipes) section for examples of extending and embeddin
 
 ### Pattern metadata
 
-Like [Pages](#pages), Patterns can also include YAML front-matter to define local data:
+Like [Pages](#pages), Patterns can also include YAML [front-matter](front-matter) to define local data:
 
 ```yaml
 name: Basic Button
@@ -326,13 +316,11 @@ notes: |
   This is just a **basic button**.
 ```
 
-The data values can be accessed directly by name from within their own templates. From external templates, the data values are accessible through a **data** property on the Pattern:
-
 ```hbs
-
+<button class="Button">
+  {{name}}
+</button>
 ```
-
-- [ ] **TODO**: Add example ^
 
 While any arbitrary YAML data can be added, there are some special predefined properties that apply to Patterns:
 
@@ -341,7 +329,7 @@ While any arbitrary YAML data can be added, there are some special predefined pr
 | **name**   | string  | This will override the default name based on the filename of the template.
 | **order**  | number  | This controls the placement relative to neighboring files when the Pattern variations are listed.
 | **hidden** | boolean | This hides the Pattern variation from listings, but not from being included as a partial.
-| **notes**  | string  | This is used to provide detailed information about the Pattern variation, and can include [Markdown](#marked) formatting.
+| **notes**  | string  | This is used to provide detailed information about the Pattern variation, and can include [Markdown](marked) formatting.
 | **links**  | object  | This is used to provide a listing of links to additional documentation. 
 
 - [ ] **TODO**: Explain "collections" as well as **collection.yaml** files.
@@ -350,8 +338,13 @@ While any arbitrary YAML data can be added, there are some special predefined pr
 
 Pages content files belong in **src/pages**:
 
+### Page organization
+
 - [ ] **TODO**: Directory tree example
 - [ ] **TODO**: Explain significance of folder organization
+
+### Page metadata
+
 - [ ] **TODO**: Explain front-matter (using vars within pattern file)
 - [ ] **TODO**: Explain supported types (`.md`)
 
