@@ -280,17 +280,17 @@ src/patterns
 
 ### Pattern collections
 
-A "Pattern" is simply any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension.
+A _pattern collection_ is any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension.
 
-For example, a **button** pattern with two variations could be structured as:
+For example, the pattern collection for a button component could be structured as:
 
 ```
-src/patterns/components/button
+src/patterns/components/button (collection)
 ├── base.hbs
 └── primary.hbs
 ```
 
-These variations would be accessible from other patterns and pages as a partial:
+These pattern variations would be accessible from other templates as a partials:
 
 ```hbs 
 {{> patterns.components.button.base}}
@@ -314,6 +314,8 @@ Like [Pages](#pages), Patterns can also include YAML [front-matter](front-matter
 name: Basic Button
 notes: |
   This is just a **basic button**.
+links:
+  man: https://developer.mozilla.org/.../Element/button
 ```
 
 ```hbs
