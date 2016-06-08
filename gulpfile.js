@@ -51,7 +51,7 @@ gulp.task('build', ['clean'], done => {
  * NOTE: Run this after building.
  */
 gulp.task('demo', done => {
-  const buildDest = path.join(process.cdw(), config.drizzle.dest.pages);
+  const buildDest = path.join(process.cwd(), config.drizzle.dest.pages);
   ghpages.publish(buildDest, done);
 });
 
