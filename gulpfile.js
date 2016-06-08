@@ -2,6 +2,7 @@
 
 const drizzle = require('drizzle-builder');
 const gulp = require('gulp');
+const ghPages = require('gulp-gh-pages');
 const helpers = require('core-hbs-helpers');
 const tasks = require('core-gulp-tasks');
 const env = require('gulp-util').env;
@@ -42,6 +43,18 @@ gulp.task('frontend', [
 gulp.task('build', ['clean'], done => {
   gulp.start('frontend');
   done();
+});
+
+/**
+ * Register demo task (deploy output to GitHub Pages)
+ * NOTE: Run this after building.
+ */
+gulp.task('demo', () => {
+  const buildDest = `${config.drizzle.dest.pages}/**/*`;
+  return gulp.src(buildDest)
+    .pipe(ghPages({
+      cacheDir: 'demo'
+    }));
 });
 
 // Register default task
