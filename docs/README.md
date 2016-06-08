@@ -14,31 +14,32 @@ Drizzle is built on the [Node.js](node) platform, so be sure to have it installe
 
 ## Installation
 
-[Download](https://github.com/cloudfour/drizzle/archive/master.zip) and extract a copy of the Drizzle source before navigating to the resulting folder and running:
+[Download](https://github.com/cloudfour/drizzle/archive/master.zip) and extract a copy of the Drizzle source, then run this command in the resulting directory:
 
 ```sh
 npm start
 ```
 
-This will install dependencies, build your toolkit, and start the development server. The results can then be viewed at <http://localhost:3000>.
+This will install dependencies, build your toolkit, and start the development server at <http://localhost:3000>.
 
 ## Commands
 
-Drizzle is controlled by [npm-scripts](npm-script) and [Gulp](gulp). Here are the ones you're most likely to need:
+Drizzle is controlled by [npm-scripts](npm-script) and [Gulp](gulp). Here are the commands you'll use most often:
 
 | Command      | Outcome
 | ---          | ---
-| `npm start`  | Install package dependencies, generate static output, start the development server, and watch for file changes.
-| `gulp build` | Generate static output.
-| `gulp clean` | Delete static output.
+| `npm start`  | Install package dependencies, build your toolkit, start the development server, and watch for file changes.
+| `gulp build` | Build your toolkit.
 | `gulp serve` | Start the development server.
+
+- [ ] **TODO**: ^ Are we happy with these?
 
 _Refer to the [Tasks](#tasks) section for information on the available Gulp tasks._
 
 
 # Toolkit Structure
 
-New projects will have a directory structure similar to this:
+New projects will have a directory structure similar to:
 
 ```
 src
@@ -260,13 +261,38 @@ _Refer to the sections for [Patterns](#patternmetadata) and [Pages](#pages) for 
 
 ## Patterns
 
-Pattern template files belong in **src/patterns**:
+Pattern template files belong in **src/patterns**.
+
+Example input:
 
 ```
 src/patterns
 ├── components
+│   ├── button
+│   │   ├── base.hbs
+│   │   └── primary.hbs
+│   └── grid
+│       ├── default.hbs
+│       └── responsive.hbs
 └── elements
+    ├── forms
+    │   ├── select.hbs
+    │   └── textarea.hbs
+    └── typographic
+        ├── headings.hbs
+        └── paragraphs.hbs
+```
 
+Example output:
+
+```
+dist/patterns
+├── components
+│   ├── button.html
+│   └── grid.html
+└── elements
+    ├── forms.html
+    └── typographic.html
 ```
 
 The default structure shows how you might organize patterns classified as **components** and **elements**, but you can use any naming convention you prefer for the folders:
@@ -285,7 +311,7 @@ A _pattern collection_ is any folder within **src/patterns** that is the parent 
 For example, the pattern collection for a button component could be structured as:
 
 ```
-src/patterns/components/button (collection)
+src/patterns/components/button
 ├── base.hbs
 └── primary.hbs
 ```
@@ -308,7 +334,7 @@ _Refer to the [Recipes](#recipes) section for examples of extending and embeddin
 
 ### Pattern metadata
 
-Like [Pages](#pages), Patterns can also include YAML [front-matter](front-matter) to define local data:
+Like [Pages](#pages), Patterns can leverage [front-matter](front-matter) for local data:
 
 ```yaml
 name: Basic Button
@@ -316,12 +342,6 @@ notes: |
   This is just a **basic button**.
 links:
   man: https://developer.mozilla.org/.../Element/button
-```
-
-```hbs
-<button class="Button">
-  {{name}}
-</button>
 ```
 
 While any arbitrary YAML data can be added, there are some special predefined properties that apply to Patterns:
@@ -334,21 +354,61 @@ While any arbitrary YAML data can be added, there are some special predefined pr
 | **notes**  | string  | This is used to provide detailed information about the Pattern variation, and can include [Markdown](marked) formatting.
 | **links**  | object  | This is used to provide a listing of links to additional documentation. 
 
-- [ ] **TODO**: Explain "collections" as well as **collection.yaml** files.
+Metadata can also be applied to the collections themselves by using a **collection.yaml** file at the root of the directory:
+
+```
+src/patterns/components/button
+├── collection.yaml
+├── base.hbs
+└── primary.hbs
+```
+
 
 ## Pages
 
-Pages content files belong in **src/pages**:
+Page content files belong in **src/pages**, and can be authored as [Markdown](marked) files, [Handlebars](handlebars) templates, or standard HTML:
 
-### Page organization
+Example input: 
 
-- [ ] **TODO**: Directory tree example
-- [ ] **TODO**: Explain significance of folder organization
+```
+src/pages
+├── demos
+│   ├── example.hbs
+│   └── index.hbs
+├── docs
+│   ├── example.md
+│   └── index.hbs
+
+└── index.hbs
+```
+
+Example output: 
+
+```
+dist
+├── demos
+│   ├── example.html
+│   └── index.html
+├── docs
+│   ├── example.html
+│   └── index.html
+├── colors.html
+└── index.html
+```
 
 ### Page metadata
 
-- [ ] **TODO**: Explain front-matter (using vars within pattern file)
-- [ ] **TODO**: Explain supported types (`.md`)
+Like [Patterns](#patterns), Pages can leverage [front-matter](front-matter) for local data:
+
+```yaml
+title: Naming Conventions
+layout: default
+```
+
+```yaml
+title: Modal Demo (Fullscreen)
+layout: blank
+```
 
 
 # Customization
