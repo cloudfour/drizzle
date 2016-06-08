@@ -6,8 +6,6 @@
 [front-matter]: https://github.com/jxson/front-matter
 [marked]: https://github.com/chjj/marked
 
-{{TOC}}
-
 # Getting Started
 
 Drizzle is built on the [Node.js](node) platform, so be sure to have it installed before proceeding.
@@ -92,7 +90,7 @@ The templates in this directory differ from [Patterns](#patterns) and [Pages](#p
 
 Files at the top-level of the templates directory are assumed to be layout templates:
 
-| Layout             | Usage 
+| Layout             | Usage
 | ---                | ---
 | **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI.
 | **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI.
@@ -233,10 +231,10 @@ Accessing values can be done with the `{{data}}` template helper. For example:
 
 - name: Pete
   photo: pete.jpg
-  
+
 - name: Paul
   photo: paul.jpg
-  
+
 - name: Mary
   photo: mary.jpg
 ```
@@ -318,7 +316,7 @@ src/patterns/components/button
 
 These pattern variations would be accessible from other templates as a partials:
 
-```hbs 
+```hbs
 {{> patterns.components.button.base}}
 ```
 
@@ -352,7 +350,7 @@ While any arbitrary YAML data can be added, there are some special predefined pr
 | **order**  | number  | This controls the placement relative to neighboring files when the Pattern variations are listed.
 | **hidden** | boolean | This hides the Pattern variation from listings, but not from being included as a partial.
 | **notes**  | string  | This is used to provide detailed information about the Pattern variation, and can include [Markdown](marked) formatting.
-| **links**  | object  | This is used to provide a listing of links to additional documentation. 
+| **links**  | object  | This is used to provide a listing of links to additional documentation.
 
 Metadata can also be applied to the collections themselves by using a **collection.yaml** file at the root of the directory:
 
@@ -368,7 +366,7 @@ src/patterns/components/button
 
 Page content files belong in **src/pages**, and can be authored as [Markdown](marked) files, [Handlebars](handlebars) templates, or standard HTML:
 
-Example input: 
+Example input:
 
 ```
 src/pages
@@ -378,11 +376,10 @@ src/pages
 ├── docs
 │   ├── example.md
 │   └── index.hbs
-
 └── index.hbs
 ```
 
-Example output: 
+Example output:
 
 ```
 dist
@@ -449,14 +446,10 @@ layout: blank
 
 - [ ] **TODO**: Which are supported?
 
-
 # Acknowledgements
 
-- [ ] **TODO**: Fabricator
-- [ ] **TODO**: PatternLab
-- [ ] **TODO**: http://solid.buzzfeed.com/
+The following projects were inspiration for the design and development of Drizzle:
 
-
-# Contributing
-
-- [ ] **TODO**: Checkout the repo
+- https://fbrctr.github.io
+- http://solid.buzzfeed.com
+- http://patternlab.io
