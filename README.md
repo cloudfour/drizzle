@@ -1,24 +1,19 @@
 # Drizzle
 
-> A pattern library authoring environment
+> A streamlined tool for developing, documenting and presenting UI pattern libraries.
 
-## Install
+## Quick Start
 
 0. [Download](https://github.com/cloudfour/drizzle/archive/master.zip)
 0. `npm start`
 
-## Overview
+## Documentation
 
-Drizzle is a project template and build tool for creating pattern libraries. It outputs static HTML that can live anywhere, using [Gulp], [PostCSS], [Babel], [Webpack] and [Handlebars] under the hood.
+- [Getting Started](docs#getting-started)
+- [Toolkit Structure](docs#toolkit-structure)
 
 ## Inspiration
 
 - https://fbrctr.github.io
 - http://solid.buzzfeed.com
 - http://patternlab.io
-
-[Gulp]: http://gulpjs.com
-[PostCSS]: http://postcss.org
-[Babel]: https://babeljs.io
-[Webpack]: https://webpack.github.io
-[Handlebars]: http://handlebarsjs.com
