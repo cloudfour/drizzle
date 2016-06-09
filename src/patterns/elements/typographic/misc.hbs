@@ -6,10 +6,10 @@ notes: |
 ---
 
 {{#with (data "specimens")}}
-  {{punctuation}}<br>
-  {{characters}}<br>
-  {{math}}<br>
-  {{currencies}}<br>
-  {{arrows}}<br>
-  {{units}}
+  {{this.punctuation}}<br>
+  {{this.characters}}<br>
+  {{this.math}}<br>
+  {{this.currencies}}<br>
+  {{this.arrows}}<br>
+  {{this.units}}
 {{/with}}
