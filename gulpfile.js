@@ -3,8 +3,8 @@
 const drizzle = require('drizzle-builder');
 const gulp = require('gulp');
 const ghPages = require('gulp-gh-pages');
-const helpers = require('core-hbs-helpers');
-const tasks = require('core-gulp-tasks');
+const helpers = require('@cloudfour/hbs-helpers');
+const tasks = require('@cloudfour/gulp-tasks');
 const env = require('gulp-util').env;
 const config = require('./config');
 
