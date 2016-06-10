@@ -454,7 +454,6 @@ The build sequence consists of a small set of [Gulp](gulp) tasks. While you prob
 
 - [ ] **TODO**: Which are supported?
 
-å
 # Acknowledgements
 
 The following projects were inspiration for the design and development of Drizzle:
