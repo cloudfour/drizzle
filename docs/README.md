@@ -47,7 +47,7 @@ The build sequence consists of a small set of [Gulp](gulp) tasks. While you'll p
 New Drizzle projects contain some boilerplate files to help you get started. The default directory structure looks something like this:
 
 ```
-├── docs
+my-drizzle-toolkit
 ├── dist
 ├── src
 │   ├── assets
