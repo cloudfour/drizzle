@@ -171,7 +171,7 @@ _Refer to the [Recipes](#recipes) section for examples of extending and embeddin
 
 ## Pages
 
-Page content files can be authored as [Markdown](marked), [Handlebars](handlebars), or standard HTML. 
+Pages can be used to present [Patterns](#patterns), or to supplement them with examples or additional documentation. They can be authored as [Markdown](marked), [Handlebars](handlebars), or standard HTML. 
 
 Example input:
 
@@ -201,12 +201,18 @@ dist
 └── index.html
 ```
 
-Pages all require a [Layout](#layouts) template assignment, and will default to **src/templates/default.hbs**. Layouts can be assigned in the [front-matter](#front-matter) of a Page:
+By default, Pages will include the surrounding Drizzle UI elements in their layout:
+
+![](./drizzle_default_layout.png)
+
+To use a different [layout template](#layouts), you can assign one in the Page [front-matter](#front-matter):
 
 ```yaml
 title: Demo Page
 layout: blank
 ```
+
+_Refer to the [Layouts](#layouts) section for more information on the default layout templates._
 
 ## Data
 
