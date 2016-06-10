@@ -216,7 +216,7 @@ _Refer to the [Layouts](#layouts) section for more information on the default la
 
 ## Data
 
-Data files in JSON or YAML format can placed in **src/data** to make their contents available to the global template context.
+To share common data across all [Page](#pages) and [Pattern](#patterns) templates, you can define data files in JSON or YAML format.
 
 Some default files are included:
 
@@ -229,24 +229,20 @@ src/data
 └── specimens.yaml
 ```
 
-Accessing values can be done with the `{{data}}` template helper. For example:
+Accessing values from these files can be done with the `{{data}}` template helper. For example:
 
 ```yaml
 # src/data/team.yaml
-
 - name: Pete
   photo: pete.jpg
-
 - name: Paul
   photo: paul.jpg
-
 - name: Mary
   photo: mary.jpg
 ```
 
-Using the `{{data}}` helper combined with `{{#each}}`:
-
 ```hbs
+{{! src/pages/team.hbs !}}
 {{#each (data "team")}}
   <img src="{{photo}}" alt="{{name}}">
 {{/each}}
@@ -255,32 +251,28 @@ Using the `{{data}}` helper combined with `{{#each}}`:
 Results in:
 
 ```html
+<!-- dist/team.html -->
 <img src="pete.jpg" alt="Pete">
 <img src="paul.jpg" alt="Paul">
 <img src="mary.jpg" alt="Mary">
 ```
 
-_Refer to the [Front-matter](#front-matter) section for examples of how data can be associated directly to Patterns and Pages._
-
 ## Front-matter
 
 [Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter](front-matter) for local template data:
 
-```yaml
-# src/patterns/button/basic.hbs
+```
+---
 name: Basic Button
 notes: This is _just_ a **basic** button.
+---
+
+<button class="Button">
+  {{name}}
+</button>
 ```
 
-```yaml
-# src/pages/colors.md
-title: Brand Colors
-primary:
-  - #0074D9
-  - #FF4136
-```
-
-These values can be accessed directly within their own template (e.g. `{{name}}`). From outside templates, the values can be accessed on the `data` property:
+These values can be accessed directly within their own template (e.g. `{{name}}`). From outside templates, the values can be accessed via the `data` property:
 
 ```hbs
 {{#with (page "colors")}}
