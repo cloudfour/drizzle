@@ -12,8 +12,30 @@
 [demo-collection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
 [demo-blank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+### Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Tasks](#tasks)
+- [Project Structure](#project-structure)
+  - [Patterns](#patterns)
+  - [Pages](#pages)
+  - [Data](#data)
+  - [Front-matter](#front-matter)
+  - [Templates](#templates)
+  - [Helpers](#helpers)
+  - [Stylesheets](#stylesheets)
+  - [JavaScript](#javascript)
+- [Customization](#customization)
+  - [Branding](#branding)
+  - [Appearance](#appearance)
+- [Advanced](#advanced)
+- [Browsers](#browsers)
+- [Acknowledgements](#acknowledgements)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Getting Started
 
