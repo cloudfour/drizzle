@@ -99,17 +99,17 @@ my-drizzle-toolkit
 
 ## Patterns
 
+A Pattern is a grouping of markup templates representing a distinct interface element. They are intended to be the most substantial and relevant part of your toolkit content.
+
+The default project structure shows how you might classify patterns as **components** and **elements**:
+
 ```
 src/patterns
 ├── components
-│   ├── button
-│   └── grid
 └── elements
-    ├── forms
-    └── typographic
 ```
 
-The default structure shows how you might organize patterns classified as **components** and **elements**, but you can use any naming convention:
+But you can use any naming convention that makes sense for your project:
 
 ```
 src/patterns
@@ -120,7 +120,7 @@ src/patterns
 
 ### Collections
 
-A Pattern _Collection_ is any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension, and will be concatenated into a single HTML output file during the build process.
+A Pattern _Collection_ is any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension, and will be concatenated into a single file during the build process.
 
 Example input:
 
