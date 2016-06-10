@@ -2,15 +2,17 @@
 [browserslist]: https://github.com/ai/browserslist
 [node]: http://nodejs.org
 [gulp]: http://gulpjs.com
-[npm-scripts]: https://docs.npmjs.com/misc/scripts
 [handlebars]: http://handlebarsjs.com
-[handlebars-layouts]: https://github.com/shannonmoeller/handlebars-layouts
-[front-matter]: https://github.com/jxson/front-matter
+[handlebarslayouts]: https://github.com/shannonmoeller/handlebars-layouts
+[fabricator]: https://fbrctr.github.io
+[solid]: http://solid.buzzfeed.com
+[patternlab]: http://patternlab.io
+[frontmatter]: https://github.com/jxson/front-matter
 [marked]: https://github.com/chjj/marked
 [download]: https://github.com/cloudfour/drizzle/archive/master.zip
-[demo-default]: https://cloudfour.github.io/drizzle
-[demo-collection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
-[demo-blank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
+[demodefault]: https://cloudfour.github.io/drizzle
+[democollection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
+[demoblank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -259,7 +261,7 @@ Results in:
 
 ## Front-matter
 
-[Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter](front-matter) for local template data:
+[Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter](frontmatter) for local template data:
 
 ```
 ---
@@ -318,7 +320,7 @@ src/templates
 The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
 
 - They are for _presenting_ content (opposed to _being_ content).
-- They do not utilize [front-matter](front-matter) data.
+- They do not utilize [front-matter](frontmatter) data.
 - They cannot be iterated over in any way.
 
 ### Layouts
@@ -327,9 +329,9 @@ Files at the top-level of the templates directory are assumed to be layout templ
 
 | Layout             | Description
 | ---                | ---
-| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI. [Example](demo-default)
-| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI. [Example](demo-blank)
-| **collection.hbs** | This is used for concatenating Pattern collections  into a single page. [Example](demo-collection)
+| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI. [Example](demodefault)
+| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI. [Example](demoblank)
+| **collection.hbs** | This is used for concatenating Pattern collections  into a single page. [Example](democollection)
 
 ### Partials
 
@@ -383,7 +385,7 @@ A handful of helpers are included by default to assist with looking up and listi
 
 **{{#extend}}**, **{{#embed}}**, **{{#block}}** and **{{#content}}**:
 
-The [handlebars-layouts](handlebars-layouts) helper suite is included to provide extensible "layout" behavior to all templates:
+The [handlebars-layouts](handlebarslayouts) helper suite is included to provide extensible "layout" behavior to all templates:
 
 ```hbs
 {{! src/templates/foo.hbs }}
@@ -486,6 +488,6 @@ src/assets/toolkit/scripts
 
 The following projects were inspiration for the design and development of Drizzle:
 
-- https://fbrctr.github.io
-- http://solid.buzzfeed.com
-- http://patternlab.io
+- [Fabricator](fabricator)
+- [Pattern Lab](patternlab)
+- [Solid](solid)
