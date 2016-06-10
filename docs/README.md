@@ -26,17 +26,21 @@ npm start
 
 This will install dependencies, build your toolkit, and start the development server at <http://localhost:3000>.
 
-## Commands
+## Tasks
 
-Drizzle is controlled by [npm-scripts](npm-script) and [Gulp](gulp). Here are the commands you'll use most often:
+The build sequence consists of a small set of [Gulp](gulp) tasks. While you'll probably only need `gulp` and `gulp --dev` most of the time, the other tasks can be called independently to process only a subset of your source files:
 
-| Command      | Outcome
-| ---          | ---
-| `npm start`  | Install package dependencies, build your toolkit, start the development server, and watch for file changes.
-| `gulp build` | Build your toolkit.
-| `gulp serve` | Start the development server.
-
-_Refer to the [Tasks](#tasks) section for information on the available Gulp tasks._
+| Task           | Description
+| ---            | ---
+| `gulp`         | Build everything and start the development server.
+| `gulp --dev`   | Do everything `gulp` does, but with file watching.
+| `gulp clean`   | Empty the destination directory.
+| `gulp copy`    | Copy static assets into the destination directory.
+| `gulp css`     | Process CSS for the toolkit and Drizzle UI.
+| `gulp js`      | Process JavaScript for the toolkit and Drizzle UI.
+| `gulp drizzle` | Compile all data, pages, and patterns into HTML files.
+| `gulp serve`   | Start the development server.
+| `gulp watch`   | Run tasks automatically when file changes occur.
 
 
 # Toolkit Structure
@@ -425,21 +429,6 @@ src/assets/toolkit/scripts
 - [ ] **TODO**: Explain class namespaces
 - [ ] **TODO**: Changing how the Drizzle UI looks
 - [ ] **TODO**: Code highlighting with Prism
-
-
-# Tasks
-
-The build sequence consists of a small set of [Gulp](gulp) tasks. While you probably won't need to use them often, they can be called independently to process only a subset of your source files:
-
-| Task           | Description
-| ---            | ---
-| `gulp clean`   | Empty the destination directory.
-| `gulp copy`    | Copy static assets into the destination directory.
-| `gulp css`     | Process CSS for the toolkit and Drizzle UI.
-| `gulp js`      | Process JavaScript for the toolkit and Drizzle UI.
-| `gulp drizzle` | Compile all data, pages, and patterns into HTML files.
-| `gulp serve`   | Start the development server.
-| `gulp watch`   | Run tasks automatically when file changes occur.
 
 
 # Advanced
