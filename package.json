@@ -32,6 +32,7 @@
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
+    "doctoc": "^1.1.1",
     "drizzle-builder": "0.0.9",
     "eslint": "^2.7.0",
     "eslint-config-xo-space": "^0.12.0",
@@ -50,6 +51,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "gulp --dev",
-    "build": "npm prestart && gulp"
+    "build": "npm prestart && gulp",
+    "docs": "doctoc --title \"### Contents\" --maxlevel 2 docs/README.md"
   }
 }
