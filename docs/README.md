@@ -3,16 +3,16 @@
 [node]: http://nodejs.org
 [gulp]: http://gulpjs.com
 [handlebars]: http://handlebarsjs.com
-[handlebarslayouts]: https://github.com/shannonmoeller/handlebars-layouts
+[handlebars-layouts]: https://github.com/shannonmoeller/handlebars-layouts
 [fabricator]: https://fbrctr.github.io
 [solid]: http://solid.buzzfeed.com
-[patternlab]: http://patternlab.io
-[frontmatter]: https://github.com/jxson/front-matter
+[pattern-lab]: http://patternlab.io
+[front-matter]: https://github.com/jxson/front-matter
 [marked]: https://github.com/chjj/marked
 [download]: https://github.com/cloudfour/drizzle/archive/master.zip
-[demodefault]: https://cloudfour.github.io/drizzle
-[democollection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
-[demoblank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
+[demo-default]: https://cloudfour.github.io/drizzle
+[demo-collection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
+[demo-blank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -41,18 +41,18 @@
 
 # Getting Started
 
-Drizzle is built on the [Node.js](node) platform, so be sure to have it installed before proceeding.
+Drizzle is built on the [Node.js][node] platform, so be sure to have it installed before proceeding.
 
 ## Installation
 
-1. [Download](download) and extract a copy of the source.
+1. [Download][download] and extract a copy of the source.
 2. Run `npm start` in the resulting directory.
 
 This will install dependencies, build your toolkit, and start the development server at <http://localhost:3000>.
 
 ## Tasks
 
-The build sequence consists of a small set of [Gulp](gulp) tasks. While you'll probably only need `gulp` and `gulp --dev` most of the time, the other tasks can be called independently to process only a subset of your source files:
+The build sequence consists of a small set of [Gulp][gulp] tasks. While you'll probably only need `gulp` and `gulp --dev` most of the time, the other tasks can be called independently to process only a subset of your source files:
 
 | Task           | Description
 | ---            | ---
@@ -86,7 +86,7 @@ my-drizzle-toolkit
 └── gulpfile.js
 ```
 
-| File | Description 
+| File | Description
 | ---  | ---
 | **dist** | Where toolkit builds are output
 | **src/assets/toolkit** | Where toolkit CSS and JavaScript files live
@@ -95,7 +95,7 @@ my-drizzle-toolkit
 | **src/patterns** | Where [Pattern](#pages) templates live
 | **src/static** | Where generic root assets live
 | **src/templates** | Where [Page Layout](#layouts) and Drizzle UI templates live
-| **browserslist** | The [Browserslist](browserslist) configuration for [Autoprefixer](autoprefixer)
+| **browserslist** | The [Browserslist][browserslist] configuration for [Autoprefixer][autoprefixer]
 | **config.js** | The [Gulp task](#tasks) configuration module
 | **gulpfile.js** | The [Gulp task](#tasks) initialization script
 
@@ -173,7 +173,7 @@ _Refer to the [Recipes](#recipes) section for examples of extending and embeddin
 
 ## Pages
 
-Pages can be used to present [Patterns](#patterns), or to supplement them with examples or additional documentation. They can be authored as [Markdown](marked), [Handlebars](handlebars), or standard HTML. 
+Pages can be used to present [Patterns](#patterns), or to supplement them with examples or additional documentation. They can be authored as [Markdown][marked], [Handlebars][handlebars], or standard HTML.
 
 Example input:
 
@@ -261,7 +261,7 @@ Results in:
 
 ## Front-matter
 
-[Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter](frontmatter) for local template data:
+[Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter][front-matter] for local template data:
 
 ```
 ---
@@ -300,7 +300,7 @@ While any arbitrary data can be added and referenced, there are some special pro
 | **name**       | string  | Override the default name for Patterns and Collections. Example:&nbsp;`name: My Page`
 | **order**      | number |  Override the default sort position for Patterns and Collections. Example:&nbsp;`order: 1`
 | **hidden**     | boolean | Hide a Pattern variation from listings.
-| **notes**      | string  | Annotate details about a Pattern variation with [Markdown](marked) formatting.
+| **notes**      | string  | Annotate details about a Pattern variation with [Markdown][marked] formatting.
 | **links**      | object  | Provide a menu of additional documentation links for a Pattern.
 | **sourceless** | boolean | Prevent the HTML source of a Pattern from being displayed.
 | **layout**     | string  | Associate a [Layout](#layouts) template to be used for wrapping Page content. Example:&nbsp;`layout: blank`
@@ -320,7 +320,7 @@ src/templates
 The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
 
 - They are for _presenting_ content (opposed to _being_ content).
-- They do not utilize [front-matter](frontmatter) data.
+- They do not utilize [front-matter][front-matter] data.
 - They cannot be iterated over in any way.
 
 ### Layouts
@@ -329,9 +329,9 @@ Files at the top-level of the templates directory are assumed to be layout templ
 
 | Layout             | Description
 | ---                | ---
-| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI. [Example](demodefault)
-| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI. [Example](demoblank)
-| **collection.hbs** | This is used for concatenating Pattern collections  into a single page. [Example](democollection)
+| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI. [Example][demo-default]
+| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI. [Example][demo-blank]
+| **collection.hbs** | This is used for concatenating Pattern collections  into a single page. [Example][demo-collection]
 
 ### Partials
 
@@ -385,7 +385,7 @@ A handful of helpers are included by default to assist with looking up and listi
 
 **{{#extend}}**, **{{#embed}}**, **{{#block}}** and **{{#content}}**:
 
-The [handlebars-layouts](handlebarslayouts) helper suite is included to provide extensible "layout" behavior to all templates:
+The [handlebars-layouts][handlebars-layouts] helper suite is included to provide extensible "layout" behavior to all templates:
 
 ```hbs
 {{! src/templates/foo.hbs }}
@@ -488,6 +488,6 @@ src/assets/toolkit/scripts
 
 The following projects were inspiration for the design and development of Drizzle:
 
-- [Fabricator](fabricator)
-- [Pattern Lab](patternlab)
-- [Solid](solid)
+- [Fabricator][fabricator]
+- [Pattern Lab][pattern-lab]
+- [Solid][solid]
