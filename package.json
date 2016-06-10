@@ -51,7 +51,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "gulp --dev",
-    "build": "npm prestart && gulp",
+    "build": "npm run prestart && gulp",
     "docs": "doctoc --title \"### Contents\" --maxlevel 2 docs/README.md"
   }
 }
