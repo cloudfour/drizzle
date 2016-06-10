@@ -305,6 +305,8 @@ While any arbitrary data can be added and referenced, there are some special pro
 
 ## Templates
 
+Templates in the **src/templates** directory are intended for the surrounding Drizzle UI.
+
 ```
 src/templates
 ├── drizzle
@@ -313,7 +315,7 @@ src/templates
 └── default.hbs
 ```
 
-Drizzle uses the [Handlebars](handlebars) template engine. The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
+The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
 
 - They are for _presenting_ content (opposed to _being_ content).
 - They do not utilize [front-matter](front-matter) data.
@@ -321,7 +323,7 @@ Drizzle uses the [Handlebars](handlebars) template engine. The templates in this
 
 ### Layouts
 
-Files at the top-level of the templates directory are assumed to be layout templates:
+Files at the top-level of the templates directory are assumed to be layout templates for [Pages](#pages):
 
 | Layout             | Description
 | ---                | ---
@@ -331,7 +333,7 @@ Files at the top-level of the templates directory are assumed to be layout templ
 
 ### Partials
 
-Files deeper than the top-level of the templates directory are registered as partials, and are intended to be used for the Drizzle presentational UI:
+Files deeper than the top-level of the templates directory are intended to be used as partials for the Drizzle UI:
 
 ```
 src/templates/drizzle
