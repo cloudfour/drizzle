@@ -1,3 +1,5 @@
+[autoprefixer]: https://github.com/postcss/autoprefixer
+[browserslist]: https://github.com/ai/browserslist
 [node]: http://nodejs.org
 [gulp]: http://gulpjs.com
 [npm-scripts]: https://docs.npmjs.com/misc/scripts
@@ -40,20 +42,37 @@ The build sequence consists of a small set of [Gulp](gulp) tasks. While you'll p
 | `gulp watch`   | Run tasks automatically when file changes occur.
 
 
-# Toolkit Structure
+# Project Structure
 
-New projects will have a directory structure similar to:
+New Drizzle projects contain some boilerplate files to help you get started. The default directory structure looks something like this:
 
 ```
-src
-├── assets
-├── data
-├── helpers
-├── pages
-├── patterns
-├── static
-└── templates
+├── docs
+├── dist
+├── src
+│   ├── assets
+│   ├── data
+│   ├── pages
+│   ├── patterns
+│   ├── static
+│   └── templates
+├── browserslist
+├── config.js
+└── gulpfile.js
 ```
+
+| File | Description 
+| ---  | ---
+| **dist** | Where toolkit builds are output
+| **src/assets/toolkit** | Where toolkit CSS and JavaScript files live
+| **src/data** | Where shared [template data](#data) files live
+| **src/pages** | Where [Page](#pages) content and templates live
+| **src/patterns** | Where [Pattern](#pages) templates live
+| **src/static** | Where generic root assets live
+| **src/templates** | Where [Page Layout](#layouts) and Drizzle UI templates live
+| **browserslist** | The [Browserslist](browserslist) configuration for [Autoprefixer](autoprefixer)
+| **config.js** | The [Gulp task](#tasks) configuration module
+| **gulpfile.js** | The [Gulp task](#tasks) initialization script
 
 ## Patterns
 
