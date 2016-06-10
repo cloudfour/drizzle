@@ -50,6 +50,6 @@
   "scripts": {
     "prestart": "npm install",
     "start": "gulp --dev",
-    "build": "npm prestart && gulp"
+    "build": "npm run prestart && gulp"
   }
 }
