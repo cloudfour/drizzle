@@ -12,7 +12,8 @@
 [demo-collection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
 [demo-blank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
 
-{{TOC}}
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # Getting Started
 
