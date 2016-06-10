@@ -18,11 +18,8 @@ Drizzle is built on the [Node.js](node) platform, so be sure to have it installe
 
 ## Installation
 
-[Download](download) and extract a copy of the Drizzle source, then run this command in the resulting directory:
-
-```sh
-npm start
-```
+1. [Download](download) and extract a copy of the source.
+2. Run `npm start` in the resulting directory.
 
 This will install dependencies, build your toolkit, and start the development server at <http://localhost:3000>.
 
