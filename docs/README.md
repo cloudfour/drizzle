@@ -1,76 +1,313 @@
+[autoprefixer]: https://github.com/postcss/autoprefixer
+[browserslist]: https://github.com/ai/browserslist
 [node]: http://nodejs.org
 [gulp]: http://gulpjs.com
-[npm-scripts]: https://docs.npmjs.com/misc/scripts
 [handlebars]: http://handlebarsjs.com
 [handlebars-layouts]: https://github.com/shannonmoeller/handlebars-layouts
+[fabricator]: https://fbrctr.github.io
+[solid]: http://solid.buzzfeed.com
+[pattern-lab]: http://patternlab.io
 [front-matter]: https://github.com/jxson/front-matter
 [marked]: https://github.com/chjj/marked
+[download]: https://github.com/cloudfour/drizzle/archive/master.zip
+[demo-default]: https://cloudfour.github.io/drizzle
+[demo-collection]: https://cloudfour.github.io/drizzle/patterns/components/button.html
+[demo-blank]: https://cloudfour.github.io/drizzle/demos/demo-example-1.html
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+### Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Tasks](#tasks)
+- [Project Structure](#project-structure)
+  - [Patterns](#patterns)
+  - [Pages](#pages)
+  - [Data](#data)
+  - [Front-matter](#front-matter)
+  - [Templates](#templates)
+  - [Helpers](#helpers)
+  - [Stylesheets](#stylesheets)
+  - [JavaScript](#javascript)
+- [Customization](#customization)
+  - [Branding](#branding)
+  - [Appearance](#appearance)
+- [Advanced](#advanced)
+- [Browsers](#browsers)
+- [Acknowledgements](#acknowledgements)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Getting Started
 
-Drizzle is built on the [Node.js](node) platform, so be sure to have it installed before proceeding.
+Drizzle is built on the [Node.js][node] platform, so be sure to have it installed before proceeding.
 
 ## Installation
 
-[Download](https://github.com/cloudfour/drizzle/archive/master.zip) and extract a copy of the Drizzle source, then run this command in the resulting directory:
-
-```sh
-npm start
-```
+1. [Download][download] and extract a copy of the source.
+2. Run `npm start` in the resulting directory.
 
 This will install dependencies, build your toolkit, and start the development server at <http://localhost:3000>.
 
-## Commands
+## Tasks
 
-Drizzle is controlled by [npm-scripts](npm-script) and [Gulp](gulp). Here are the commands you'll use most often:
+The build sequence consists of a small set of [Gulp][gulp] tasks. While you'll probably only need `gulp` and `gulp --dev` most of the time, the other tasks can be called independently to process only a subset of your source files:
 
-| Command      | Outcome
-| ---          | ---
-| `npm start`  | Install package dependencies, build your toolkit, start the development server, and watch for file changes.
-| `gulp build` | Build your toolkit.
-| `gulp serve` | Start the development server.
+| Task           | Description
+| ---            | ---
+| `gulp`         | Build everything and start the development server.
+| `gulp --dev`   | Do everything `gulp` does, but with file watching.
+| `gulp clean`   | Empty the destination directory.
+| `gulp copy`    | Copy static assets into the destination directory.
+| `gulp css`     | Process CSS for the toolkit and Drizzle UI.
+| `gulp js`      | Process JavaScript for the toolkit and Drizzle UI.
+| `gulp drizzle` | Compile all data, pages, and patterns into HTML files.
+| `gulp serve`   | Start the development server.
+| `gulp watch`   | Run tasks automatically when file changes occur.
 
-- [ ] **TODO**: ^ Are we happy with these?
 
-_Refer to the [Tasks](#tasks) section for information on the available Gulp tasks._
+# Project Structure
 
-
-# Toolkit Structure
-
-New projects will have a directory structure similar to:
-
-```
-src
-├── assets
-├── data
-├── helpers
-├── pages
-├── patterns
-├── static
-└── templates
-```
-
-## Assets
-
-CSS files for your toolkit belong in **src/assets/toolkit/styles**:
+New Drizzle projects contain some boilerplate files to help you get started. The default directory structure looks something like this:
 
 ```
-assets/toolkit/styles
-└── toolkit.css
+my-drizzle-toolkit
+├── dist
+├── src
+│   ├── assets
+│   ├── data
+│   ├── pages
+│   ├── patterns
+│   ├── static
+│   └── templates
+├── browserslist
+├── config.js
+└── gulpfile.js
 ```
 
-JavaScript files for your toolkit belong in **src/assets/toolkit/scripts**:
+| File | Description
+| ---  | ---
+| **dist** | Where toolkit builds are output
+| **src/assets/toolkit** | Where toolkit CSS and JavaScript files live
+| **src/data** | Where shared [template data](#data) files live
+| **src/pages** | Where [Page](#pages) content and templates live
+| **src/patterns** | Where [Pattern](#pages) templates live
+| **src/static** | Where generic root assets live
+| **src/templates** | Where [Page Layout](#layouts) and Drizzle UI templates live
+| **browserslist** | The [Browserslist][browserslist] configuration for [Autoprefixer][autoprefixer]
+| **config.js** | The [Gulp task](#tasks) configuration module
+| **gulpfile.js** | The [Gulp task](#tasks) initialization script
+
+## Patterns
+
+A Pattern is a grouping of markup templates representing a distinct interface element. They are intended to be the most substantial and relevant part of your toolkit content.
+
+The default project structure shows how you might classify patterns as **components** and **elements**:
 
 ```
-src/assets/toolkit/scripts
-└── toolkit.js
+src/patterns
+├── components
+└── elements
 ```
 
-_Refer to the [Configuration](#configuration) section for information on how CSS and JavaScript assets are processed at build time._
+But you can use any naming convention that makes sense for your project:
+
+```
+src/patterns
+├── atoms
+├── molecules
+└── organisms
+```
+
+### Collections
+
+A Pattern _Collection_ is any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension, and will be concatenated into a single file during the build process.
+
+Example input:
+
+```
+src/patterns/components
+├── button
+│   ├── base.hbs
+│   └── primary.hbs
+└── grid
+    ├── default.hbs
+    └── responsive.hbs
+```
+
+Example output:
+
+```
+dist/patterns/components
+├── button.html
+└── grid.html
+```
+
+### Variations
+
+It's common for patterns to consist of multiple variations of the same general piece of markup. For example, the pattern collection for a button component could be structured as:
+
+```
+src/patterns/components/button
+├── base.hbs
+└── primary.hbs
+```
+
+These pattern variations are accessible from other templates as partials:
+
+```hbs
+{{> patterns.components.button.base}}
+```
+
+And for more complex cases, the **{{#extend}}** and **{{#embed}}** helpers can be used:
+
+```hbs
+{{#embed "patterns.components.button.base}}
+  ...
+{{/embed}}
+```
+
+_Refer to the [Recipes](#recipes) section for examples of extending and embedding patterns._
+
+
+## Pages
+
+Pages can be used to present [Patterns](#patterns), or to supplement them with examples or additional documentation. They can be authored as [Markdown][marked], [Handlebars][handlebars], or standard HTML.
+
+Example input:
+
+```
+src/pages
+├── demos
+│   ├── example.hbs
+│   └── index.hbs
+├── docs
+│   ├── example.md
+│   └── index.hbs
+├── colors.hbs
+└── index.hbs
+```
+
+Example output:
+
+```
+dist
+├── demos
+│   ├── example.html
+│   └── index.html
+├── docs
+│   ├── example.html
+│   └── index.html
+├── colors.html
+└── index.html
+```
+
+By default, Pages will include the surrounding Drizzle UI elements in their layout:
+
+![](./drizzle_default_layout.png)
+
+To use a different [layout template](#layouts), you can assign one in the Page [front-matter](#front-matter):
+
+```yaml
+title: Demo Page
+layout: blank
+```
+
+_Refer to the [Layouts](#layouts) section for more information on the default layout templates._
+
+## Data
+
+To share common data across all [Page](#pages) and [Pattern](#patterns) templates, you can define data files in JSON or YAML format.
+
+Some default files are included:
+
+```
+src/data
+├── articles.yaml
+├── colors.yaml
+├── project.yaml
+├── radfaces.json
+└── specimens.yaml
+```
+
+Accessing values from these files can be done with the `{{data}}` template helper. For example:
+
+```yaml
+# src/data/team.yaml
+- name: Pete
+  photo: pete.jpg
+- name: Paul
+  photo: paul.jpg
+- name: Mary
+  photo: mary.jpg
+```
+
+```hbs
+{{! src/pages/team.hbs !}}
+{{#each (data "team")}}
+  <img src="{{photo}}" alt="{{name}}">
+{{/each}}
+```
+
+Results in:
+
+```html
+<!-- dist/team.html -->
+<img src="pete.jpg" alt="Pete">
+<img src="paul.jpg" alt="Paul">
+<img src="mary.jpg" alt="Mary">
+```
+
+## Front-matter
+
+[Patterns](#patterns) and [Pages](#pages) can leverage [YAML front-matter][front-matter] for local template data:
+
+```
+---
+name: Basic Button
+notes: This is _just_ a **basic** button.
+---
+
+<button class="Button">
+  {{name}}
+</button>
+```
+
+These values can be accessed directly within their own template (e.g. `{{name}}`). From outside templates, the values can be accessed via the `data` property:
+
+```hbs
+{{#with (page "colors")}}
+  {{data.title}}
+{{/with}}
+```
+
+Front-matter can also be applied to [Pattern Collections](#collections) by using a **collection.yaml** file at the root of the directory:
+
+```
+src/patterns/components/button
+├── collection.yaml
+├── base.hbs
+└── primary.hbs
+```
+
+### Special Properties
+
+While any arbitrary data can be added and referenced, there are some special property definitions that affect how things are displayed:
+
+| Property       | Type    | Description
+| ---            | ---     | ---
+| **name**       | string  | Override the default name for Patterns and Collections. Example:&nbsp;`name: My Page`
+| **order**      | number |  Override the default sort position for Patterns and Collections. Example:&nbsp;`order: 1`
+| **hidden**     | boolean | Hide a Pattern variation from listings.
+| **notes**      | string  | Annotate details about a Pattern variation with [Markdown][marked] formatting.
+| **links**      | object  | Provide a menu of additional documentation links for a Pattern.
+| **sourceless** | boolean | Prevent the HTML source of a Pattern from being displayed.
+| **layout**     | string  | Associate a [Layout](#layouts) template to be used for wrapping Page content. Example:&nbsp;`layout: blank`
 
 ## Templates
 
-Drizzle uses the [Handlebars](handlebars) template engine. Template files for your toolkit and the Drizzle UI belong in **src/templates**:
+Templates in the **src/templates** directory are intended for the surrounding Drizzle UI.
 
 ```
 src/templates
@@ -83,38 +320,34 @@ src/templates
 The templates in this directory differ from [Patterns](#patterns) and [Pages](#pages) in a few ways:
 
 - They are for _presenting_ content (opposed to _being_ content).
-- They do not utilize [front-matter](front-matter) data.
+- They do not utilize [front-matter][front-matter] data.
 - They cannot be iterated over in any way.
 
-### Layout templates
+### Layouts
 
-Files at the top-level of the templates directory are assumed to be layout templates:
+Files at the top-level of the templates directory are assumed to be layout templates for [Pages](#pages):
 
-| Layout             | Usage
+| Layout             | Description
 | ---                | ---
-| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI.
-| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI.
-| **collection.hbs** | This is used for concatenating Pattern collections  into a single page.
+| **default.hbs**    | This is for standard pages that do require the presence of the Drizzle UI. [Example][demo-default]
+| **blank.hbs**      | This is used for special standalone pages that don't require the presence of the Drizzle UI. [Example][demo-blank]
+| **collection.hbs** | This is used for concatenating Pattern collections  into a single page. [Example][demo-collection]
 
-[Pages](#pages) can use these layout templates by referencing them in the **layout** property of their [front-matter](front-matter) data:
+### Partials
 
-```yaml
-title: Demo Page
-layout: blank
+Files deeper than the top-level of the templates directory are intended to be used as partials for the Drizzle UI:
+
 ```
-
-_Refer to the [Recipes](#recipes) section for examples of how to extend and create new layout templates._
+src/templates/drizzle
+├── item.hbs
+├── labelheader.hbs
+├── logo.hbs
+├── nav.hbs
+├── page-item.hbs
+└── swatch.hbs
+```
 
 ## Helpers
-
-[Handlebars](handlebars) helper functions belong in **src/helpers**:
-
-```
-
-```
-
-- [ ] **TODO**: Add example ^
-- [ ] **TODO**: Explain how files in this directory get registered as helpers.
 
 A handful of helpers are included by default to assist with looking up and listing [Data](#data), [Pages](#pages), and [Patterns](#patterns).
 
@@ -152,7 +385,7 @@ A handful of helpers are included by default to assist with looking up and listi
 
 **{{#extend}}**, **{{#embed}}**, **{{#block}}** and **{{#content}}**:
 
-The [handlebars-layouts](handlebars-layouts) helper suite is included to provide extensible "layout" behavior to all templates:
+The [handlebars-layouts][handlebars-layouts] helper suite is included to provide extensible "layout" behavior to all templates:
 
 ```hbs
 {{! src/templates/foo.hbs }}
@@ -207,210 +440,25 @@ Pattern templates can also benefit from these helpers:
 </button>
 ```
 
-_Refer to the [Configuration](#configuration) section for examples of alternative ways helpers can be registered._
-
-## Data
-
-Data files in JSON or YAML format can placed in **src/data** to make their contents available to the global template context.
-
-Some default files are included:
+## Stylesheets
 
 ```
-src/data
-├── articles.yaml
-├── colors.yaml
-├── project.yaml
-├── radfaces.json
-└── specimens.yaml
+assets/toolkit/styles
+└── toolkit.css
 ```
 
-Accessing values can be done with the `{{data}}` template helper. For example:
+- [ ] **TODO**: Explain place in build process.
 
-```yaml
-# src/data/team.yaml
-
-- name: Pete
-  photo: pete.jpg
-
-- name: Paul
-  photo: paul.jpg
-
-- name: Mary
-  photo: mary.jpg
-```
-
-Using the `{{data}}` helper combined with `{{#each}}`:
-
-```hbs
-{{#each (data "team")}}
-  <img src="{{photo}}" alt="{{name}}">
-{{/each}}
-```
-
-Results in:
-
-```html
-<img src="pete.jpg" alt="Pete">
-<img src="paul.jpg" alt="Paul">
-<img src="mary.jpg" alt="Mary">
-```
-
-_Refer to the sections for [Patterns](#patternmetadata) and [Pages](#pages) for examples of how data can also be associated directly to resources using [front-matter](front-matter)._
-
-## Patterns
-
-Pattern template files belong in **src/patterns**.
-
-Example input:
+## JavaScript
 
 ```
-src/patterns
-├── components
-│   ├── button
-│   │   ├── base.hbs
-│   │   └── primary.hbs
-│   └── grid
-│       ├── default.hbs
-│       └── responsive.hbs
-└── elements
-    ├── forms
-    │   ├── select.hbs
-    │   └── textarea.hbs
-    └── typographic
-        ├── headings.hbs
-        └── paragraphs.hbs
+src/assets/toolkit/scripts
+└── toolkit.js
 ```
 
-Example output:
-
-```
-dist/patterns
-├── components
-│   ├── button.html
-│   └── grid.html
-└── elements
-    ├── forms.html
-    └── typographic.html
-```
-
-The default structure shows how you might organize patterns classified as **components** and **elements**, but you can use any naming convention you prefer for the folders:
-
-```
-src/patterns
-├── atoms
-├── molecules
-└── organisms
-```
-
-### Pattern collections
-
-A _pattern collection_ is any folder within **src/patterns** that is the parent to one or more template files. The files can be named anything with a **.hbs** or **.html** extension.
-
-For example, the pattern collection for a button component could be structured as:
-
-```
-src/patterns/components/button
-├── base.hbs
-└── primary.hbs
-```
-
-These pattern variations would be accessible from other templates as a partials:
-
-```hbs
-{{> patterns.components.button.base}}
-```
-
-And for more complex cases, the **{{#extend}}** and **{{#embed}}** helpers can be used instead:
-
-```hbs
-{{#embed "patterns.components.button.base}}
-  ...
-{{/embed}}
-```
-
-_Refer to the [Recipes](#recipes) section for examples of extending and embedding patterns._
-
-### Pattern metadata
-
-Like [Pages](#pages), Patterns can leverage [front-matter](front-matter) for local data:
-
-```yaml
-name: Basic Button
-notes: |
-  This is just a **basic button**.
-links:
-  man: https://developer.mozilla.org/.../Element/button
-```
-
-While any arbitrary YAML data can be added, there are some special predefined properties that apply to Patterns:
-
-| Property   | Type    | Usage
-| ---        | ---     | ---
-| **name**   | string  | This will override the default name based on the filename of the template.
-| **order**  | number  | This controls the placement relative to neighboring files when the Pattern variations are listed.
-| **hidden** | boolean | This hides the Pattern variation from listings, but not from being included as a partial.
-| **notes**  | string  | This is used to provide detailed information about the Pattern variation, and can include [Markdown](marked) formatting.
-| **links**  | object  | This is used to provide a listing of links to additional documentation.
-
-Metadata can also be applied to the collections themselves by using a **collection.yaml** file at the root of the directory:
-
-```
-src/patterns/components/button
-├── collection.yaml
-├── base.hbs
-└── primary.hbs
-```
-
-
-## Pages
-
-Page content files belong in **src/pages**, and can be authored as [Markdown](marked) files, [Handlebars](handlebars) templates, or standard HTML:
-
-Example input:
-
-```
-src/pages
-├── demos
-│   ├── example.hbs
-│   └── index.hbs
-├── docs
-│   ├── example.md
-│   └── index.hbs
-└── index.hbs
-```
-
-Example output:
-
-```
-dist
-├── demos
-│   ├── example.html
-│   └── index.html
-├── docs
-│   ├── example.html
-│   └── index.html
-├── colors.html
-└── index.html
-```
-
-### Page metadata
-
-Like [Patterns](#patterns), Pages can leverage [front-matter](front-matter) for local data:
-
-```yaml
-title: Naming Conventions
-layout: default
-```
-
-```yaml
-title: Modal Demo (Fullscreen)
-layout: blank
-```
-
+- [ ] **TODO**: Explain place in build process.
 
 # Customization
-
-- [ ] **TODO**: Overview of relevant keys in `config.js`
 
 ## Branding
 
@@ -423,16 +471,6 @@ layout: blank
 - [ ] **TODO**: Changing how the Drizzle UI looks
 - [ ] **TODO**: Code highlighting with Prism
 
-
-# Recipes
-
-- [ ] **TODO**: Creating Patterns
-- [ ] **TODO**: Creating Pages
-
-
-# Tasks
-
-- [ ] **TODO**: Explain the tasks
 
 # Advanced
 
@@ -450,6 +488,6 @@ layout: blank
 
 The following projects were inspiration for the design and development of Drizzle:
 
-- https://fbrctr.github.io
-- http://solid.buzzfeed.com
-- http://patternlab.io
+- [Fabricator][fabricator]
+- [Pattern Lab][pattern-lab]
+- [Solid][solid]
