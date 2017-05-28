@@ -4,13 +4,21 @@ notes: This is an example demo.
 layout: blank
 styles:
   - demo-2
+  - toolkit
 ---
-
-<h1>{{title}}</h1>
-
-<p>Data below courtesy of <a href="http://www.radfaces.com">Rad Faces</a>.</p>
-<ul>
-  {{#each (data "radfaces")}}
-    <li>{{first_name}} {{last_name}} from {{location}}</li>
-  {{/each}}
-</ul>
+<div class="container">
+  <header>
+    <h1>{{title}}</h1>
+    <p>Data below courtesy of <a href="http://www.radfaces.com">Rad Faces</a>.</p>
+  </header>
+  <ul class="Grid Grid--withGutter">
+    {{#each (data "radfaces")}}
+      <li class="Grid-cell u-md-size1of2 u-lg-size1of4">
+        <div class="item">
+          <img width="150" src="{{image}}"><br>
+          {{first_name}} {{last_name}} from {{location}}
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>

@@ -1,13 +1,18 @@
 html {
   line-height: 1.5;
+  font-family: Futura, Arial, Helvetica, sans-serif;
 }
 
 :any-link {
   color: var(--color-blue);
 }
 
+h1 {
+  color: var(--color-white);
+}
+
 @media (--lg-viewport) {
   body {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }

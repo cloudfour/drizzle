@@ -1,5 +1,37 @@
 @import "./base/config.css";
 
 body {
-  background-color: var(--color-teal);
+  background: var(--color-teal);
+
+  background: -webkit-linear-gradient(120deg, var(--color-teal), var(--color-lime), var(--color-yellow)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(120deg, var(--color-teal), var(--color-lime), var(--color-yellow)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(120deg, var(--color-teal), var(--color-lime), var(--color-yellow)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(120deg, var(--color-teal), var(--color-lime), var(--color-yellow)); /* Standard syntax */
+}
+.container {
+  max-width: 85%;
+  margin: 2em auto;
+  text-align: center;
+}
+header {
+  margin-bottom: 2em;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  top: 0;
+  transform: rotate(0) scale(.8);
+  transition: transform .35s ease;
+  @media (--lg-viewport) {
+    &:hover {
+      transform: rotate(360deg) scale(1);
+      transition: transform .35s ease;
+    }
+  }
+}
+.item {
+  padding: 10px;
+  font-size: .9em;
 }
