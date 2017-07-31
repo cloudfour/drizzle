@@ -163,7 +163,7 @@ These pattern variations are accessible from other templates as partials:
 And for more complex cases, the **{{#extend}}** and **{{#embed}}** helpers can be used:
 
 ```hbs
-{{#embed "patterns.components.button.base}}
+{{#embed "patterns.components.button.base"}}
   ...
 {{/embed}}
 ```
