@@ -65,6 +65,9 @@
   "eslintConfig": {
     "extends": "@cloudfour/eslint-config"
   },
+  "eslintIgnore": [
+    "dist"
+  ],
   "prettier": {
     "singleQuote": true
   }
