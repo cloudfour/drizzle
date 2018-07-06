@@ -26,6 +26,7 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
+    "@cloudfour/eslint-config": "^1.0.0",
     "@cloudfour/gulp-tasks": "^2.0.1",
     "@cloudfour/hbs-helpers": "^0.6.1",
     "babel-core": "^6.7.6",
