@@ -12,13 +12,9 @@ const config = require('./config');
 Object.assign(config.drizzle, { helpers });
 
 // Register core tasks
-[
-  'clean',
-  'copy',
-  'js',
-  'serve',
-  'watch'
-].forEach(name => tasks[name](gulp, config[name]));
+['clean', 'copy', 'js', 'serve', 'watch'].forEach(name =>
+  tasks[name](gulp, config[name])
+);
 
 // Register special CSS tasks
 tasks.css(gulp, config['css:toolkit']);
@@ -32,12 +28,7 @@ gulp.task('drizzle', () => {
 });
 
 // Register frontend composite task
-gulp.task('frontend', [
-  'drizzle',
-  'copy',
-  'css',
-  'js'
-]);
+gulp.task('frontend', ['drizzle', 'copy', 'css', 'js']);
 
 // Register build task (for continuous deployment via Netflify)
 gulp.task('build', ['clean'], done => {
@@ -51,10 +42,11 @@ gulp.task('build', ['clean'], done => {
  */
 gulp.task('demo', () => {
   const buildDest = `${config.drizzle.dest.pages}/**/*`;
-  return gulp.src(buildDest)
-    .pipe(ghPages({
+  return gulp.src(buildDest).pipe(
+    ghPages({
       cacheDir: 'demo'
-    }));
+    })
+  );
 });
 
 // Register default task

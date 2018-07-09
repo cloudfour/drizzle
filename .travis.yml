@@ -1,4 +1,13 @@
 language: node_js
+
 node_js:
-  - v5
-  - v4
+  - node
+  - lts/*
+
+cache:
+  directories:
+    - "node_modules"
+
+script:
+  - npm run check-lint
+  - npm test

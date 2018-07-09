@@ -9,10 +9,10 @@ dom.navMenu = document.getElementById('nav-menu');
 dom.navToggle = dom.nav.querySelector('a[href="#nav"]');
 dom.navLinks = dom.navMenu.querySelectorAll('a');
 
-function setActiveNavItem (pathname) {
+function setActiveNavItem(pathname) {
   const noIndex = str => str.replace(/index\.html$/, '');
   const isMatch = a => noIndex(a.pathname) === noIndex(pathname);
-  const item = Array.from(dom.navLinks).find(isMatch);
+  const item = [...dom.navLinks].find(isMatch);
   if (item) {
     item.classList.add('is-active');
   }
@@ -27,9 +27,9 @@ setActiveNavItem(window.location.pathname);
 
 dom.frameContainers = document.querySelectorAll('[data-drizzle-append-iframe]');
 
-if (dom.frameContainers.length) {
+if (dom.frameContainers.length > 0) {
   window.addEventListener('load', () => {
-    Array.from(dom.frameContainers).forEach(container => {
+    [...dom.frameContainers].forEach(container => {
       const src = container.getAttribute('data-drizzle-append-iframe');
       const iframe = document.createElement('iframe');
       iframe.addEventListener('load', () => {
